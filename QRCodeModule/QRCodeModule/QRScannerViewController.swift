@@ -20,12 +20,14 @@ class QRScannerViewController: UIViewController {
    캡처 세션의 입력 및 출력을 구성한 후 start() 및 나중에 stop() 지시하십시오.
    */
   var captureSession = AVCaptureSession()
+
   /*
    VideoPreview로 콘텐츠를 스트리밍하도록 카메라 캡처 세션을 구성한다.
    Preview는 AVCaptureVideoPreviewLayer가 지원하는 사용자 지정 UIView 하위 클래스 입니다
    */
   var videoPreviewLayer: AVCaptureVideoPreviewLayer?
-  var qrCodeFrameView: UIView?
+  var qrCodeFrameView: UIImageView?
+  var scanView = UIView()
 
 
   override func viewDidLoad() {
@@ -73,18 +75,99 @@ class QRScannerViewController: UIViewController {
       view.bringSubviewToFront(closeButton)
       view.bringSubviewToFront(resultLabel)
 
-      qrCodeFrameView = UIView()
+      scanView.frame = self.view.frame
+      scanView.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+      view.addSubview(scanView)
+      view.bringSubviewToFront(scanView)
+
+//      setupScanImage()
+
+      qrCodeFrameView = UIImageView()
       if let qrCodeFrameView = qrCodeFrameView {
         qrCodeFrameView.layer.borderColor = UIColor.green.cgColor
         qrCodeFrameView.layer.borderWidth = 2
-        view.addSubview(qrCodeFrameView)
-        view.bringSubviewToFront(qrCodeFrameView)
+        qrCodeFrameView.frame = CGRect(x: view.center.x, y: view.center.y, width: 300, height: 300)
+        scanView.addSubview(qrCodeFrameView)
+        scanView.bringSubviewToFront(qrCodeFrameView)
       }
+
+      scanView.mask(withRect: CGRect(x: 50, y: 100, width: 300, height: 201), inverse: true)
+//      setScanZoneLineBorder(CGRect(x: 100, y: 100, width: 200, height: 200))
+//      setupScanImage()
 
     } catch {
       print(error)
       return
     }
+  }
+
+  var leftTopLayer = CAShapeLayer()
+  var rightTopLayer = CAShapeLayer()
+  var leftBottomLayer = CAShapeLayer()
+  var rightBottomLayer = CAShapeLayer()
+
+  func setupScanImage() {
+    let leftTopImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+    leftTopImageView.image = UIImage(named: "ScanQR1_16x16_")
+    leftTopImageView.backgroundColor = .clear
+    qrCodeFrameView!.addSubview(leftTopImageView)
+
+    let rightopImageView = UIImageView.init(frame: CGRect(x: scanView.frame.width - 20, y: 0, width: 20, height: 20))
+    rightopImageView.image = UIImage(named: "ScanQR2_16x16_")
+    rightopImageView.backgroundColor = UIColor.clear
+    qrCodeFrameView!.addSubview(rightopImageView)
+  }
+
+  func setScanZoneLineBorder(_ scanRect : CGRect) {
+      leftTopLayer.removeFromSuperlayer()
+      rightTopLayer.removeFromSuperlayer()
+      leftBottomLayer.removeFromSuperlayer()
+      rightBottomLayer.removeFromSuperlayer()
+      //左上角的框
+      let leftTopBezierPath = UIBezierPath()
+      leftTopBezierPath.move(to: CGPoint(x: scanRect.minX + 15, y: scanRect.minY - 2))
+      leftTopBezierPath.addLine(to: CGPoint(x: scanRect.minX - 2, y: scanRect.minY - 2))
+      leftTopBezierPath.addLine(to: CGPoint(x: scanRect.minX - 2, y: scanRect.minY + 15))
+      leftTopLayer.path = leftTopBezierPath.cgPath
+      leftTopLayer.lineWidth = 4
+      leftTopLayer.strokeColor = UIColor.green.cgColor
+      leftTopLayer.fillColor = UIColor.clear.cgColor
+    self.view.layer.addSublayer(leftTopLayer)
+
+      //右上角的框
+      let rightTopBezierPath = UIBezierPath()
+      rightTopBezierPath.move(to: CGPoint(x: scanRect.maxX - 15, y: scanRect.minY - 2))
+      rightTopBezierPath.addLine(to: CGPoint(x: scanRect.maxX + 2, y: scanRect.minY - 2))
+      rightTopBezierPath.addLine(to: CGPoint(x: scanRect.maxX + 2, y: scanRect.minY + 15))
+      rightTopLayer.path = rightTopBezierPath.cgPath
+      rightTopLayer.lineWidth = 4
+      rightTopLayer.strokeColor = UIColor.green.cgColor
+      rightTopLayer.fillColor = UIColor.clear.cgColor
+      self.view.layer.addSublayer(rightTopLayer)
+
+      //左下角
+      let leftBottomBezierPath = UIBezierPath()
+      leftBottomBezierPath.move(to: CGPoint(x: scanRect.minX + 15, y: scanRect.maxY + 2))
+      leftBottomBezierPath.addLine(to: CGPoint(x: scanRect.minX - 2, y: scanRect.maxY + 2))
+      leftBottomBezierPath.addLine(to: CGPoint(x: scanRect.minX - 2, y: scanRect.maxY - 15))
+      leftBottomLayer.path = leftBottomBezierPath.cgPath
+      leftBottomLayer.lineWidth = 4
+      leftBottomLayer.strokeColor = UIColor.green.cgColor
+      leftBottomLayer.fillColor = UIColor.clear.cgColor
+      self.view.layer.addSublayer(leftBottomLayer)
+
+
+      //右下角
+      let rightBottomBezierPath = UIBezierPath()
+      rightBottomBezierPath.move(to: CGPoint(x: scanRect.maxX + 2, y: scanRect.maxY - 15))
+      rightBottomBezierPath.addLine(to: CGPoint(x: scanRect.maxX + 2, y: scanRect.maxY + 2))
+      rightBottomBezierPath.addLine(to: CGPoint(x: scanRect.maxX - 15, y: scanRect.maxY + 2))
+      rightBottomLayer.path = rightBottomBezierPath.cgPath
+      rightBottomLayer.lineWidth = 4
+      rightBottomLayer.strokeColor = UIColor.green.cgColor
+      rightBottomLayer.fillColor = UIColor.clear.cgColor
+      self.view.layer.addSublayer(rightBottomLayer)
+
   }
 
 }
@@ -95,30 +178,60 @@ extension QRScannerViewController: AVCaptureMetadataOutputObjectsDelegate {
     print(metadataObjects)
     /*
      [
-      <AVMetadataMachineReadableCodeObject: 0x281c3d040, type="org.iso.QRCode", bounds={ 0.3,0.4 0.1x0.2 }>corners { 0.3,0.6 0.5,0.6 0.5,0.4 0.4,0.4 },
-      time 1836491341075875,
-      stringValue "http://www.appcoda.com"
+     <AVMetadataMachineReadableCodeObject: 0x281c3d040, type="org.iso.QRCode", bounds={ 0.3,0.4 0.1x0.2 }>corners { 0.3,0.6 0.5,0.6 0.5,0.4 0.4,0.4 },
+     time 1836491341075875,
+     stringValue "http://www.appcoda.com"
      ]
      */
-//    guard let metadataObj = metadataObjects.first as? AVMetadataMachineReadableCodeObject else { return }
-//    if metadataObj.type == AVMetadataObject.ObjectType.qr {
-//      let barcodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
-//      qrCodeFrameView?.frame = barcodeObject?.bounds ?? CGRect.zero
-//
-//      if let resultValue = metadataObj.stringValue {
-//        resultLabel.text = resultValue
-//      }
-//    }
+    //    guard let metadataObj = metadataObjects.first as? AVMetadataMachineReadableCodeObject else { return }
+    //    if metadataObj.type == AVMetadataObject.ObjectType.qr {
+    //      let barcodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
+    //      qrCodeFrameView?.frame = barcodeObject?.bounds ?? CGRect.zero
+    //
+    //      if let resultValue = metadataObj.stringValue {
+    //        resultLabel.text = resultValue
+    //      }
+    //    }
 
     guard let metadataObj = metadataObjects.first as? AVMetadataSalientObject else { return }
-//    if metadataObj.type == AVMetadataObject.ObjectType.qr {
-      let barcodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
-      qrCodeFrameView?.frame = barcodeObject?.bounds ?? CGRect.zero
+    //    if metadataObj.type == AVMetadataObject.ObjectType.qr {
+    let barcodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
+    qrCodeFrameView?.frame = barcodeObject?.bounds ?? CGRect.zero
 
-//      if let resultValue = metadataObj.stringValue {
-//        resultLabel.text = resultValue
-//      }
-//    }
+    //      if let resultValue = metadataObj.stringValue {
+    //        resultLabel.text = resultValue
+    //      }
+    //    }
   }
 }
 
+extension UIView {
+
+    func mask(withRect rect: CGRect, inverse: Bool = false) {
+        let path = UIBezierPath(rect: rect)
+        let maskLayer = CAShapeLayer()
+
+        if inverse {
+            path.append(UIBezierPath(rect: self.bounds))
+          maskLayer.fillRule = CAShapeLayerFillRule.evenOdd
+        }
+
+        maskLayer.path = path.cgPath
+
+        self.layer.mask = maskLayer
+    }
+
+    func mask(withPath path: UIBezierPath, inverse: Bool = false) {
+        let path = path
+        let maskLayer = CAShapeLayer()
+
+        if inverse {
+            path.append(UIBezierPath(rect: self.bounds))
+          maskLayer.fillRule = CAShapeLayerFillRule.evenOdd
+        }
+
+        maskLayer.path = path.cgPath
+
+        self.layer.mask = maskLayer
+    }
+}

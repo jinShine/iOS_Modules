@@ -13,6 +13,7 @@
 		5C9042EC23EAA98C00BBCB26 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C9042EA23EAA98C00BBCB26 /* LaunchScreen.storyboard */; };
 		5C9042F423EAAD1B00BBCB26 /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9042F323EAAD1B00BBCB26 /* QRCodeViewController.swift */; };
 		5C9042F623EAAD3500BBCB26 /* QRScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9042F523EAAD3500BBCB26 /* QRScannerViewController.swift */; };
+		5CDFFA4023EBDA7E0094BE16 /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDFFA3F23EBDA7E0094BE16 /* OverlayView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		5C9042ED23EAA98C00BBCB26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C9042F323EAAD1B00BBCB26 /* QRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
 		5C9042F523EAAD3500BBCB26 /* QRScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerViewController.swift; sourceTree = "<group>"; };
+		5CDFFA3F23EBDA7E0094BE16 /* OverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				5C9042ED23EAA98C00BBCB26 /* Info.plist */,
 				5C9042F323EAAD1B00BBCB26 /* QRCodeViewController.swift */,
 				5C9042F523EAAD3500BBCB26 /* QRScannerViewController.swift */,
+				5CDFFA3F23EBDA7E0094BE16 /* OverlayView.swift */,
 			);
 			path = QRCodeModule;
 			sourceTree = "<group>";
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C9042F423EAAD1B00BBCB26 /* QRCodeViewController.swift in Sources */,
+				5CDFFA4023EBDA7E0094BE16 /* OverlayView.swift in Sources */,
 				5C9042E023EAA98B00BBCB26 /* AppDelegate.swift in Sources */,
 				5C9042F623EAAD3500BBCB26 /* QRScannerViewController.swift in Sources */,
 			);
