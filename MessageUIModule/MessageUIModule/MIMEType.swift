@@ -16,8 +16,8 @@ enum MIMEType: String {
   case pdf = "application/pdf"
   case html = "text/html"
   
-  init?(type: String) {
-    switch type.lowercased() {
+  init?(type: String?) {
+    switch type?.lowercased() {
     case "jpg": self = .jpg
     case "png": self = .png
     case "doc": self = .doc
