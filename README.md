@@ -4,4 +4,4 @@
 2. MessageUI
 3. QR Code
 4. Audio
-5. apple login
+5. Sign in with Apple
