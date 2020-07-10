@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -43,7 +44,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="136"/>
+            <point key="canvasLocation" x="-291" y="42"/>
         </scene>
         <!--Movie View Controller-->
         <scene sceneID="bVA-kj-FA9">
@@ -77,10 +78,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nYK-Vx-xio"/>
                     </view>
+                    <navigationItem key="navigationItem" id="99l-QR-kce"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b8d-lc-uV6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="783" y="141"/>
+            <point key="canvasLocation" x="888" y="42"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="OMI-0j-pif">
@@ -105,32 +107,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZMk-1r-A6z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1428.985507246377" y="140.625"/>
+            <point key="canvasLocation" x="1993" y="141"/>
         </scene>
-        <!--Search View Controller-->
-        <scene sceneID="58n-9Z-HMQ">
+        <!--Search-->
+        <scene sceneID="e5c-t6-nJ0">
             <objects>
-                <viewController storyboardIdentifier="SearchViewController" id="mQF-OZ-BTe" customClass="SearchViewController" customModule="TestStoryboard" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Fpo-2V-J8r">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DbW-f2-ztW">
-                                <rect key="frame" x="181" y="433" width="52" height="30"/>
-                                <state key="normal" title="dismiss"/>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="DbW-f2-ztW" firstAttribute="centerY" secondItem="Fpo-2V-J8r" secondAttribute="centerY" id="AYv-DB-tgE"/>
-                            <constraint firstItem="DbW-f2-ztW" firstAttribute="centerX" secondItem="Fpo-2V-J8r" secondAttribute="centerX" id="sCc-2i-53n"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="bpV-QC-hBd"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="A8r-pE-VkT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Search" id="J7i-1k-bqs" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ipf-fA-b6L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="783" y="851"/>
+            <point key="canvasLocation" x="-333" y="419"/>
         </scene>
     </scenes>
 </document>
