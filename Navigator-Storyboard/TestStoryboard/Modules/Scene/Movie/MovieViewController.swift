@@ -8,10 +8,9 @@
 
 import UIKit
 
-class MovieViewController: UIViewController {
+class MovieViewController: BaseViewController {
   
   var viewModel: MovieViewModel!
-  var navigator: Navigator!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -24,7 +23,6 @@ class MovieViewController: UIViewController {
   
   @IBAction func push(_ sender: UIButton) {
     let vm = DetailViewModel()
-    navigator.push(storyboard: UIStoryboard(name: "Main", bundle: nil), scene: .detail(viewModel: vm), sender: self.navigationController, animated: true)
-    
+    navigator.push(name: .main, scene: .detail(viewModel: vm), sender: self.navigationController, animated: true)
   }
 }

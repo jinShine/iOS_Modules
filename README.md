@@ -5,3 +5,4 @@
 3. QR Code
 4. Audio
 5. Sign in with Apple
+6. Navigator-Storyboard
