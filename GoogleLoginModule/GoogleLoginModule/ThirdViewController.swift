@@ -1,27 +1,26 @@
 //
-//  ViewController.swift
+//  ThirdViewController.swift
 //  GoogleLoginModule
 //
-//  Created by Jinnify on 2020/07/16.
+//  Created by Buzz.Kim on 2020/07/25.
 //  Copyright © 2020 Jinnify. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
-class ViewController: UIViewController {
-
+class ThirdViewController: UIViewController {
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    print("ThirdViewController")
     
   }
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    navigationController?.navigationBar.prefersLargeTitles = false
-    title = "111"
+    navigationController?.navigationBar.prefersLargeTitles = true
+    title = "333"
   }
-
-
 }
-

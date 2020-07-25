@@ -8,22 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		366DE88D24C0773F00683A63 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366DE88C24C0773F00683A63 /* AppDelegate.swift */; };
-		366DE88F24C0773F00683A63 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366DE88E24C0773F00683A63 /* SceneDelegate.swift */; };
 		366DE89124C0773F00683A63 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366DE89024C0773F00683A63 /* ViewController.swift */; };
 		366DE89424C0773F00683A63 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 366DE89224C0773F00683A63 /* Main.storyboard */; };
 		366DE89624C0774000683A63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 366DE89524C0774000683A63 /* Assets.xcassets */; };
 		366DE89924C0774000683A63 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 366DE89724C0774000683A63 /* LaunchScreen.storyboard */; };
+		EC1B0F4124CC78230023AE3B /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1B0F4024CC78230023AE3B /* SecondViewController.swift */; };
+		EC1B0F4424CC78760023AE3B /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1B0F4324CC78760023AE3B /* ThirdViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		366DE88924C0773F00683A63 /* GoogleLoginModule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoogleLoginModule.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		366DE88C24C0773F00683A63 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		366DE88E24C0773F00683A63 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		366DE89024C0773F00683A63 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		366DE89324C0773F00683A63 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		366DE89524C0774000683A63 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		366DE89824C0774000683A63 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		366DE89A24C0774000683A63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC1B0F4024CC78230023AE3B /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		EC1B0F4324CC78760023AE3B /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,8 +59,9 @@
 			isa = PBXGroup;
 			children = (
 				366DE88C24C0773F00683A63 /* AppDelegate.swift */,
-				366DE88E24C0773F00683A63 /* SceneDelegate.swift */,
 				366DE89024C0773F00683A63 /* ViewController.swift */,
+				EC1B0F4024CC78230023AE3B /* SecondViewController.swift */,
+				EC1B0F4324CC78760023AE3B /* ThirdViewController.swift */,
 				366DE89224C0773F00683A63 /* Main.storyboard */,
 				366DE89524C0774000683A63 /* Assets.xcassets */,
 				366DE89724C0774000683A63 /* LaunchScreen.storyboard */,
@@ -138,9 +141,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC1B0F4124CC78230023AE3B /* SecondViewController.swift in Sources */,
 				366DE89124C0773F00683A63 /* ViewController.swift in Sources */,
+				EC1B0F4424CC78760023AE3B /* ThirdViewController.swift in Sources */,
 				366DE88D24C0773F00683A63 /* AppDelegate.swift in Sources */,
-				366DE88F24C0773F00683A63 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +291,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CNMQE42DQF;
 				INFOPLIST_FILE = GoogleLoginModule/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -305,6 +310,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CNMQE42DQF;
 				INFOPLIST_FILE = GoogleLoginModule/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
