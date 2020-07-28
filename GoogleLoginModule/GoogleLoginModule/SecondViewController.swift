@@ -19,7 +19,10 @@ class SecondViewController: UIViewController {
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+    
     navigationController?.navigationBar.prefersLargeTitles = true
+    navigationController?.navigationBar.shadowImage = UIImage()
+    navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
     title = "222"
   }
 }

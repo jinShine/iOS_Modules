@@ -18,7 +18,10 @@ class ViewController: UIViewController {
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    navigationController?.navigationBar.prefersLargeTitles = false
+    
+    navigationController?.navigationBar.shadowImage = UIImage()
+    navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+    navigationController?.navigationBar.prefersLargeTitles = true
     title = "111"
   }
 
