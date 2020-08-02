@@ -47,7 +47,12 @@ class ViewController: UIViewController {
     let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onClickTransparentView))
     transparentView.addGestureRecognizer(tapGesture)
     
-    UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseInOut, animations: {
+    UIView.animate(withDuration: 0.5,
+                   delay: 0,
+                   usingSpringWithDamping: 1.0,
+                   initialSpringVelocity: 1.0,
+                   options: .curveEaseInOut,
+                   animations: {
       self.transparentView.backgroundColor = UIColor.black.withAlphaComponent(0.24)
       self.tableView.frame = CGRect(x: 0, y: screenSize.height - self.height, width: screenSize.width, height: self.height)
     }, completion: nil)
@@ -57,7 +62,12 @@ class ViewController: UIViewController {
     
     let screenSize = UIScreen.main.bounds.size
 
-    UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseInOut, animations: {
+    UIView.animate(withDuration: 0.5,
+                   delay: 0,
+                   usingSpringWithDamping: 1.0,
+                   initialSpringVelocity: 1.0,
+                   options: .curveEaseInOut,
+                   animations: {
       self.transparentView.backgroundColor = UIColor.black.withAlphaComponent(0)
       self.tableView.frame = CGRect(x: 0, y: screenSize.height, width: screenSize.width, height: self.height)
     }, completion: nil)
