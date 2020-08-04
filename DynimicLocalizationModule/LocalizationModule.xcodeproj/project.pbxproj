@@ -1,0 +1,389 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EC3DED0024D8E4B300F7E4F2 /* LocalizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3DECFF24D8E4B300F7E4F2 /* LocalizationManager.swift */; };
+		EC3DED0324D8F04600F7E4F2 /* LanguageServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3DED0224D8F04600F7E4F2 /* LanguageServiceManager.swift */; };
+		EC3DED0724D8FE5300F7E4F2 /* DefaultsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3DED0624D8FE5300F7E4F2 /* DefaultsCell.swift */; };
+		ECD390E524CFFA0600B71130 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD390E424CFFA0600B71130 /* AppDelegate.swift */; };
+		ECD390E924CFFA0600B71130 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD390E824CFFA0600B71130 /* ViewController.swift */; };
+		ECD390EC24CFFA0600B71130 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECD390EA24CFFA0600B71130 /* Main.storyboard */; };
+		ECD390EE24CFFA0700B71130 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECD390ED24CFFA0700B71130 /* Assets.xcassets */; };
+		ECD390F124CFFA0700B71130 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECD390EF24CFFA0700B71130 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		EC3DECFF24D8E4B300F7E4F2 /* LocalizationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationManager.swift; sourceTree = "<group>"; };
+		EC3DED0224D8F04600F7E4F2 /* LanguageServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageServiceManager.swift; sourceTree = "<group>"; };
+		EC3DED0624D8FE5300F7E4F2 /* DefaultsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsCell.swift; sourceTree = "<group>"; };
+		ECD390E124CFFA0600B71130 /* LocalizationModule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocalizationModule.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECD390E424CFFA0600B71130 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		ECD390E824CFFA0600B71130 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		ECD390EB24CFFA0600B71130 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		ECD390ED24CFFA0700B71130 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		ECD390F024CFFA0700B71130 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		ECD390F224CFFA0700B71130 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECD390FD24CFFA4000B71130 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
+		ECD390FE24CFFA4000B71130 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ECD390DE24CFFA0600B71130 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EC3DED0124D8E4B900F7E4F2 /* Insiar Dynamic Localization */ = {
+			isa = PBXGroup;
+			children = (
+				EC3DECFF24D8E4B300F7E4F2 /* LocalizationManager.swift */,
+				EC3DED0224D8F04600F7E4F2 /* LanguageServiceManager.swift */,
+			);
+			path = "Insiar Dynamic Localization";
+			sourceTree = "<group>";
+		};
+		ECD390D824CFFA0600B71130 = {
+			isa = PBXGroup;
+			children = (
+				ECD390E324CFFA0600B71130 /* LocalizationModule */,
+				ECD390E224CFFA0600B71130 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ECD390E224CFFA0600B71130 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ECD390E124CFFA0600B71130 /* LocalizationModule.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ECD390E324CFFA0600B71130 /* LocalizationModule */ = {
+			isa = PBXGroup;
+			children = (
+				EC3DED0124D8E4B900F7E4F2 /* Insiar Dynamic Localization */,
+				ECD390E424CFFA0600B71130 /* AppDelegate.swift */,
+				ECD390E824CFFA0600B71130 /* ViewController.swift */,
+				ECD390EA24CFFA0600B71130 /* Main.storyboard */,
+				ECD390ED24CFFA0700B71130 /* Assets.xcassets */,
+				ECD390EF24CFFA0700B71130 /* LaunchScreen.storyboard */,
+				ECD390F224CFFA0700B71130 /* Info.plist */,
+				EC3DED0624D8FE5300F7E4F2 /* DefaultsCell.swift */,
+			);
+			path = LocalizationModule;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ECD390E024CFFA0600B71130 /* LocalizationModule */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ECD390F524CFFA0700B71130 /* Build configuration list for PBXNativeTarget "LocalizationModule" */;
+			buildPhases = (
+				ECD390DD24CFFA0600B71130 /* Sources */,
+				ECD390DE24CFFA0600B71130 /* Frameworks */,
+				ECD390DF24CFFA0600B71130 /* Resources */,
+				ECD3910224CFFA9C00B71130 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LocalizationModule;
+			productName = LocalizationModule;
+			productReference = ECD390E124CFFA0600B71130 /* LocalizationModule.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ECD390D924CFFA0600B71130 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1150;
+				LastUpgradeCheck = 1150;
+				ORGANIZATIONNAME = jinnify;
+				TargetAttributes = {
+					ECD390E024CFFA0600B71130 = {
+						CreatedOnToolsVersion = 11.5;
+					};
+				};
+			};
+			buildConfigurationList = ECD390DC24CFFA0600B71130 /* Build configuration list for PBXProject "LocalizationModule" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				ko,
+			);
+			mainGroup = ECD390D824CFFA0600B71130;
+			productRefGroup = ECD390E224CFFA0600B71130 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ECD390E024CFFA0600B71130 /* LocalizationModule */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ECD390DF24CFFA0600B71130 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECD390F124CFFA0700B71130 /* LaunchScreen.storyboard in Resources */,
+				ECD390EE24CFFA0700B71130 /* Assets.xcassets in Resources */,
+				ECD390EC24CFFA0600B71130 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		ECD3910224CFFA9C00B71130 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "echo \"generating I18N.swift\"\n\ntouch tempI18N.swift\necho \"struct I18N {\" >> tempI18N.swift\n\ninputfile=${SRCROOT}/LocalizationModule/ko.lproj/Localizable.strings\nwhile IFS= read -r line\n\ndo\necho $line\npattern='^[a-zA-Z]+(.*)[\\\\s]*=[\\\\s]*(.*);$'\n\nif [[ $line =~ $pattern ]]\nthen\n    echo \"Yes👌\"\n    variableName=$(echo ${line%%=*})\n    echo $variableName\n    if [ \"$variableName\" != \"\" ]; then\n        echo \"    static let $variableName = \\\"$variableName\\\".localized\" >> tempI18N.swift\n    fi\nelse\n    echo \"No👎\"\nfi\ndone <\"$inputfile\"\n\necho \"}\" >> tempI18N.swift\ncat tempI18N.swift > ${SRCROOT}/LocalizationModule/I18N.swift\nrm tempI18N.swift\n\necho \"-------------\"\ncat $inputfile\ncat ${SRCROOT}/Pomodoro/Resources/I18N.swift\necho \"-------------\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ECD390DD24CFFA0600B71130 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECD390E924CFFA0600B71130 /* ViewController.swift in Sources */,
+				EC3DED0024D8E4B300F7E4F2 /* LocalizationManager.swift in Sources */,
+				ECD390E524CFFA0600B71130 /* AppDelegate.swift in Sources */,
+				EC3DED0724D8FE5300F7E4F2 /* DefaultsCell.swift in Sources */,
+				EC3DED0324D8F04600F7E4F2 /* LanguageServiceManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		ECD390EA24CFFA0600B71130 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ECD390EB24CFFA0600B71130 /* Base */,
+				ECD390FD24CFFA4000B71130 /* ko */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		ECD390EF24CFFA0700B71130 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ECD390F024CFFA0700B71130 /* Base */,
+				ECD390FE24CFFA4000B71130 /* ko */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		ECD390F324CFFA0700B71130 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		ECD390F424CFFA0700B71130 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ECD390F624CFFA0700B71130 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CNMQE42DQF;
+				INFOPLIST_FILE = LocalizationModule/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jinnify.LocalizationModule;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		ECD390F724CFFA0700B71130 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CNMQE42DQF;
+				INFOPLIST_FILE = LocalizationModule/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jinnify.LocalizationModule;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ECD390DC24CFFA0600B71130 /* Build configuration list for PBXProject "LocalizationModule" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECD390F324CFFA0700B71130 /* Debug */,
+				ECD390F424CFFA0700B71130 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ECD390F524CFFA0700B71130 /* Build configuration list for PBXNativeTarget "LocalizationModule" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECD390F624CFFA0700B71130 /* Debug */,
+				ECD390F724CFFA0700B71130 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ECD390D924CFFA0600B71130 /* Project object */;
+}
