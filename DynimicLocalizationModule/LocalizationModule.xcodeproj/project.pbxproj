@@ -10,6 +10,7 @@
 		EC3DED0024D8E4B300F7E4F2 /* LocalizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3DECFF24D8E4B300F7E4F2 /* LocalizationManager.swift */; };
 		EC3DED0324D8F04600F7E4F2 /* LanguageServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3DED0224D8F04600F7E4F2 /* LanguageServiceManager.swift */; };
 		EC3DED0724D8FE5300F7E4F2 /* DefaultsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3DED0624D8FE5300F7E4F2 /* DefaultsCell.swift */; };
+		EC3DED1C24DB013400F7E4F2 /* Languages.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3DED1B24DB013400F7E4F2 /* Languages.swift */; };
 		ECD390E524CFFA0600B71130 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD390E424CFFA0600B71130 /* AppDelegate.swift */; };
 		ECD390E924CFFA0600B71130 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD390E824CFFA0600B71130 /* ViewController.swift */; };
 		ECD390EC24CFFA0600B71130 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECD390EA24CFFA0600B71130 /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 		EC3DECFF24D8E4B300F7E4F2 /* LocalizationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationManager.swift; sourceTree = "<group>"; };
 		EC3DED0224D8F04600F7E4F2 /* LanguageServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageServiceManager.swift; sourceTree = "<group>"; };
 		EC3DED0624D8FE5300F7E4F2 /* DefaultsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsCell.swift; sourceTree = "<group>"; };
+		EC3DED1B24DB013400F7E4F2 /* Languages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Languages.swift; sourceTree = "<group>"; };
 		ECD390E124CFFA0600B71130 /* LocalizationModule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocalizationModule.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECD390E424CFFA0600B71130 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECD390E824CFFA0600B71130 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -52,6 +54,14 @@
 			path = "Insiar Dynamic Localization";
 			sourceTree = "<group>";
 		};
+		EC3DED1A24DB011A00F7E4F2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EC3DED1B24DB013400F7E4F2 /* Languages.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		ECD390D824CFFA0600B71130 = {
 			isa = PBXGroup;
 			children = (
@@ -71,6 +81,7 @@
 		ECD390E324CFFA0600B71130 /* LocalizationModule */ = {
 			isa = PBXGroup;
 			children = (
+				EC3DED1A24DB011A00F7E4F2 /* Models */,
 				EC3DED0124D8E4B900F7E4F2 /* Insiar Dynamic Localization */,
 				ECD390E424CFFA0600B71130 /* AppDelegate.swift */,
 				ECD390E824CFFA0600B71130 /* ViewController.swift */,
@@ -181,6 +192,7 @@
 				ECD390E524CFFA0600B71130 /* AppDelegate.swift in Sources */,
 				EC3DED0724D8FE5300F7E4F2 /* DefaultsCell.swift in Sources */,
 				EC3DED0324D8F04600F7E4F2 /* LanguageServiceManager.swift in Sources */,
+				EC3DED1C24DB013400F7E4F2 /* Languages.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

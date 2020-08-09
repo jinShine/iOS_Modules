@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
-//  LocalizationModule
+//  ImageSlicingTutorial
 //
-//  Created by Buzz.Kim on 2020/07/28.
+//  Created by Buzz.Kim on 2020/08/07.
 //  Copyright © 2020 jinnify. All rights reserved.
 //
 

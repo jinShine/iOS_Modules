@@ -21,8 +21,8 @@ class ViewController: UIViewController {
   @IBOutlet weak var label5: UILabel!
   @IBOutlet weak var label6: UILabel!
   
-  var country: [String] = ["en", "ta", "hi"]
   var languages: [Language] = []
+  var country: [String] = ["en", "ta", "hi"]
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -55,12 +55,15 @@ class ViewController: UIViewController {
       indicator.startAnimating()
       indicator.isHidden = false
       
-      LanguageServiceManager.shared.fetchLanguageFromServer(url: dummyURL) { (success, list) in
+      LanguageServiceManager.shared.fetchLanguageFromServer(url: dummyURL) { (success, json) in
+
+        _ = try? LocalizationManager.shared.writeToBundle(languages: json?.languages ?? [])
+        
         DispatchQueue.main.async {
           self.indicator.stopAnimating()
           self.indicator.isHidden = true
           self.languages.removeAll(keepingCapacity: true)
-          self.languages.append(contentsOf: list?.languages ?? [])
+          self.languages.append(contentsOf: json?.languages ?? [])
           self.pickerView.reloadAllComponents()
           self.updateView()
         }

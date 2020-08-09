@@ -27,7 +27,6 @@ class LanguageServiceManager: NSObject {
       
       do {
         let json = try JSONDecoder().decode(Languages.self, from: data)
-        _ = try LocalizationManager.shared.writeToBundle(languages: json.languages)
         completion(true, json)
       } catch {
         print("Decodable Error")
@@ -37,13 +36,4 @@ class LanguageServiceManager: NSObject {
     
     task.resume()
   }
-}
-
-struct Languages: Decodable {
-  var languages: [Language]
-}
-
-struct Language: Decodable {
-  var code: String
-  var translations: [String: String]
 }
