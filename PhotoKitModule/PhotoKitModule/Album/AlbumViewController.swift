@@ -1,191 +1,99 @@
 //
 //  AlbumViewController.swift
-//  core
+//  PhotoKitModule
 //
-//  Created by Buzz.Kim on 2020/08/21.
-//  Copyright © 2020 Stat.So. All rights reserved.
+//  Created by Buzz.Kim on 2020/09/13.
+//  Copyright © 2020 jinnify. All rights reserved.
 //
 
 import UIKit
-import RxSwift
-import RxCocoa
-import RxDataSources
+import Photos
 
-typealias AlbumOfSection = SectionModel<String, AlbumItem>
-
-class AlbumViewController: BaseViewController {
+class AlbumViewController: UIViewController {
+  @IBOutlet fileprivate weak var collectionView: UICollectionView!
   
-  // MARK: - Constant
-  
-  struct Constant {
-    static let title = "이미지 선택"
-  }
-  
-  struct Metric {
-    static let collectionViewColumn: CGFloat = 3
-    static let itemSpacing: CGFloat = 2
-    static let lineSpacing: CGFloat = 2
-  }
-  
-  // MARK: - UI Properties
-  
-  lazy var collectionView: BaseCollectionView = {
-    let layout = UICollectionViewFlowLayout()
-    layout.scrollDirection = .vertical
-    let collectionView = BaseCollectionView(frame: .zero, collectionViewLayout: layout)
-    collectionView.showsHorizontalScrollIndicator = false
-    collectionView.showsVerticalScrollIndicator = false
-    collectionView.delegate = self
-    collectionView.register(
-      AlbumItemCell.self,
-      forCellWithReuseIdentifier: AlbumItemCell.reuseIdentifier
-    )
-    return collectionView
-  }()
-  
-  // MARK: - Properties
-  
-  let viewModel: AlbumViewModel?
-  let navigator: Navigator
-  
-  init(viewModel: BaseViewModel, navigator: Navigator) {
-    self.viewModel = viewModel as? AlbumViewModel
-    self.navigator = navigator
-    super.init(nibName: nil, bundle: nil)
-  }
-  
-  required init?(coder: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
-  }
-  
-  deinit {
-    
-  }
+  fileprivate let kCellReuseIdentifier = "Cell"
+  fileprivate let kColumnCnt: Int = 3
+  fileprivate let kCellSpacing: CGFloat = 2
+  fileprivate var fetchResult: PHFetchResult<PHAsset>!
+  fileprivate var imageManager = PHCachingImageManager()
+  fileprivate var targetSize = CGSize.zero
   
   override func viewDidLoad() {
-    setLeftBarButton(.close(sender: self))
-    setRightBarButton(.text("확인"))
     super.viewDidLoad()
-    self.prefersLargeTitles = false
-    self.title = Constant.title
+    
+    initView()
+    loadPhotos()
+  }
+}
+
+fileprivate extension AlbumViewController {
+  func initView() {
+    let imgWidth = (collectionView.frame.width - (kCellSpacing * (CGFloat(kColumnCnt) - 1))) / CGFloat(kColumnCnt)
+    targetSize = CGSize(width: imgWidth, height: imgWidth)
+    
+    let layout = UICollectionViewFlowLayout()
+    layout.itemSize = targetSize
+    layout.minimumInteritemSpacing = kCellSpacing
+    layout.minimumLineSpacing = kCellSpacing
+    collectionView.collectionViewLayout = layout
+    
+    collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: kCellReuseIdentifier)
   }
   
-  override func setupConstraints() {
-    super.setupConstraints()
-    
-    collectionView
-      .add(to: self.view)
-      .snp.makeConstraints {
-        $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-        $0.leading.trailing.bottom.equalToSuperview()
+  func loadPhotos() {
+    let options = PHFetchOptions()
+    options.sortDescriptors = [
+      NSSortDescriptor(key: "creationDate", ascending: false)
+    ]
+    fetchResult = PHAsset.fetchAssets(with: .image, options: options)
+  }
+}
+
+extension AlbumViewController: UICollectionViewDataSource {
+  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kCellReuseIdentifier, for: indexPath)
+    let photoAsset = fetchResult.object(at: indexPath.item)
+    imageManager.requestImage(for: photoAsset, targetSize: targetSize, contentMode: .aspectFill, options: nil) { (image, info) -> Void in
+      let imageView = UIImageView(image: image)
+      imageView.frame.size = cell.frame.size
+      imageView.contentMode = .scaleAspectFill
+      imageView.clipsToBounds = true
+      cell.contentView.addSubview(imageView)
+    }
+    return cell
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    return fetchResult.count
+  }
+}
+
+extension AlbumViewController: UICollectionViewDataSourcePrefetching {
+  func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+    DispatchQueue.main.async {
+      self.imageManager.startCachingImages(for: indexPaths.map{ self.fetchResult.object(at: $0.item) }, targetSize: self.targetSize, contentMode: .aspectFill, options: nil)
     }
   }
   
-  override func bindViewModel() {
-    super.bindViewModel()
-    guard let viewModel = viewModel else { return }
-    
-    // Input -->
-    
-    let datasource = RxCollectionViewSectionedReloadDataSource<AlbumOfSection>(
-      configureCell: { (datasource, collectionView, indexPath, item) -> UICollectionViewCell in 
-        guard let cell = collectionView.dequeueReusableCell(
-          withReuseIdentifier: AlbumItemCell.reuseIdentifier, for: indexPath
-          ) as? AlbumItemCell else { return UICollectionViewCell() }
-        
-        cell.configure(with: item)
-        return cell
-    })
-    
-    let viewWillAppearTrigger = rx.viewWillAppear.mapToVoid()
-    
-    let didTapCellSelected = Observable.zip(collectionView.rx.itemSelected,
-                                            collectionView.rx.modelSelected(AlbumItem.self))
-    
-    let willDisplayCellTrigger = collectionView.rx.willDisplayCell.asObservable()
-      .map { ($0, $1)}
-
-    let prefetchItemsTrigger = collectionView.rx.prefetchItems.asObservable()
-    
-    let cancelPrefetchingTrigger = collectionView.rx.cancelPrefetchingForItems.asObservable()
-    
-    let input = AlbumViewModel.Input(
-      viewWillAppearTrigger: viewWillAppearTrigger,
-      didTapCellSelected: didTapCellSelected,
-      willDisplayCellTrigger: willDisplayCellTrigger,
-      prefetchItemsTrigger: prefetchItemsTrigger,
-      cancelPrefetchingTrigger: cancelPrefetchingTrigger
-    )
-    
-    // Output <--
-    
-    let output = viewModel.transform(input: input)
-    
-    output.fetchPhotoItems
-      .drive()
-      .disposed(by: rx.disposeBag)
-    
-    output.loadMore
-      .drive()
-      .disposed(by: rx.disposeBag)
-    
-    output.updateAlbumItemList
-      .bind(to: collectionView.rx.items(dataSource: datasource))
-      .disposed(by: rx.disposeBag)
-    
-    output.startCachingImages
-      .drive()
-      .disposed(by: rx.disposeBag)
-    
-    output.stopCachingImages
-      .drive()
-      .disposed(by: rx.disposeBag)
-    
-    output.selectedCell
-      .drive()
-      .disposed(by: rx.disposeBag)
-    
+  func collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
+    DispatchQueue.main.async {
+      self.imageManager.stopCachingImages(for: indexPaths.map{ self.fetchResult.object(at: $0.item) }, targetSize: self.targetSize, contentMode: .aspectFill, options: nil)
+    }
   }
 }
-
-// MARK: - Methods
-
-extension AlbumViewController {
-
-}
-
-// MARK: - CollectionView delegate
 
 extension AlbumViewController: UICollectionViewDelegate {
-  
-}
-
-extension AlbumViewController: UICollectionViewDelegateFlowLayout {
-  
-  func collectionView(_ collectionView: UICollectionView,
-                      layout collectionViewLayout: UICollectionViewLayout,
-                      sizeForItemAt indexPath: IndexPath) -> CGSize {
-    
-    let calculatedWidth = (view.frame.width - (Metric.lineSpacing * 2)) / Metric.collectionViewColumn
-    return CGSize(width: calculatedWidth, height: calculatedWidth)
+  func numberOfSections(in collectionView: UICollectionView) -> Int {
+    return 1
   }
   
-  public func collectionView(_ collectionView: UICollectionView,
-                             layout collectionViewLayout: UICollectionViewLayout,
-                             insetForSectionAt section: Int) -> UIEdgeInsets {
-    return .zero
+  func collectionView(_ collectionView: UICollectionView, layout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
+    return targetSize
   }
   
-  public func collectionView(_ collectionView: UICollectionView,
-                             layout collectionViewLayout: UICollectionViewLayout,
-                             minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-    return Metric.itemSpacing
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    let photoAsset = fetchResult.object(at: indexPath.item)
+    print(photoAsset.description)
   }
-  
-  public func collectionView(_ collectionView: UICollectionView,
-                             layout collectionViewLayout: UICollectionViewLayout,
-                             minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-    return Metric.lineSpacing
-  }
-  
 }
