@@ -7,14 +7,30 @@
 //
 
 import UIKit
+import Lottie
 
 class ViewController: UIViewController {
-
+  
+  let lottieAnimationView = LottieAnimationView()
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view.
+    view.backgroundColor = .blue
+    
+    setupLottie()
+    play()
   }
-
-
+  
+  private func setupLottie() {
+    view.addSubview(lottieAnimationView)
+    lottieAnimationView.setup(animationName: "components_loading", loopMode: .loop)
+    lottieAnimationView.frame = view.frame
+  }
+  
+  private func play() {
+    lottieAnimationView.playAnimation()
+  }
+  
+  
 }
 
