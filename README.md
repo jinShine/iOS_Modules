@@ -6,3 +6,5 @@
 4. Audio
 5. Sign in with Apple
 6. Navigator-Storyboard
+7. Lottie
+8. Photos
