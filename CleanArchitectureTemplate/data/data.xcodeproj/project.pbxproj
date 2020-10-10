@@ -10,6 +10,8 @@
 		EC32C5D32532031E006AB5D6 /* data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC32C5C92532031E006AB5D6 /* data.framework */; };
 		EC32C5D82532031E006AB5D6 /* dataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC32C5D72532031E006AB5D6 /* dataTests.swift */; };
 		EC32C5DA2532031E006AB5D6 /* data.h in Headers */ = {isa = PBXBuildFile; fileRef = EC32C5CC2532031E006AB5D6 /* data.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC32C63C253217D3006AB5D6 /* domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC32C63B253217D3006AB5D6 /* domain.framework */; };
+		EC32C63D253217D3006AB5D6 /* domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC32C63B253217D3006AB5D6 /* domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -22,6 +24,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		EC32C63E253217D3006AB5D6 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				EC32C63D253217D3006AB5D6 /* domain.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		EC32C5C92532031E006AB5D6 /* data.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = data.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC32C5CC2532031E006AB5D6 /* data.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = data.h; sourceTree = "<group>"; };
@@ -29,6 +45,7 @@
 		EC32C5D22532031E006AB5D6 /* dataTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dataTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC32C5D72532031E006AB5D6 /* dataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataTests.swift; sourceTree = "<group>"; };
 		EC32C5D92532031E006AB5D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC32C63B253217D3006AB5D6 /* domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC32C63C253217D3006AB5D6 /* domain.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +74,7 @@
 				EC32C5CB2532031E006AB5D6 /* data */,
 				EC32C5D62532031E006AB5D6 /* dataTests */,
 				EC32C5CA2532031E006AB5D6 /* Products */,
+				EC32C63A253217D3006AB5D6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -86,6 +105,14 @@
 			path = dataTests;
 			sourceTree = "<group>";
 		};
+		EC32C63A253217D3006AB5D6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EC32C63B253217D3006AB5D6 /* domain.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -108,6 +135,7 @@
 				EC32C5C52532031E006AB5D6 /* Sources */,
 				EC32C5C62532031E006AB5D6 /* Frameworks */,
 				EC32C5C72532031E006AB5D6 /* Resources */,
+				EC32C63E253217D3006AB5D6 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

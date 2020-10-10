@@ -10,6 +10,8 @@
 		EC32C61B25320609006AB5D6 /* presentation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC32C61125320608006AB5D6 /* presentation.framework */; };
 		EC32C62025320609006AB5D6 /* presentationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC32C61F25320609006AB5D6 /* presentationTests.swift */; };
 		EC32C62225320609006AB5D6 /* presentation.h in Headers */ = {isa = PBXBuildFile; fileRef = EC32C61425320608006AB5D6 /* presentation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC32C637253217CA006AB5D6 /* domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC32C636253217CA006AB5D6 /* domain.framework */; };
+		EC32C638253217CA006AB5D6 /* domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC32C636253217CA006AB5D6 /* domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -22,6 +24,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		EC32C639253217CA006AB5D6 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				EC32C638253217CA006AB5D6 /* domain.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		EC32C61125320608006AB5D6 /* presentation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = presentation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC32C61425320608006AB5D6 /* presentation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = presentation.h; sourceTree = "<group>"; };
@@ -29,6 +45,7 @@
 		EC32C61A25320609006AB5D6 /* presentationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = presentationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC32C61F25320609006AB5D6 /* presentationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = presentationTests.swift; sourceTree = "<group>"; };
 		EC32C62125320609006AB5D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC32C636253217CA006AB5D6 /* domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC32C637253217CA006AB5D6 /* domain.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +74,7 @@
 				EC32C61325320608006AB5D6 /* presentation */,
 				EC32C61E25320609006AB5D6 /* presentationTests */,
 				EC32C61225320608006AB5D6 /* Products */,
+				EC32C635253217CA006AB5D6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -86,6 +105,14 @@
 			path = presentationTests;
 			sourceTree = "<group>";
 		};
+		EC32C635253217CA006AB5D6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EC32C636253217CA006AB5D6 /* domain.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -108,6 +135,7 @@
 				EC32C60D25320608006AB5D6 /* Sources */,
 				EC32C60E25320608006AB5D6 /* Frameworks */,
 				EC32C60F25320608006AB5D6 /* Resources */,
+				EC32C639253217CA006AB5D6 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

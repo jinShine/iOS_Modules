@@ -18,6 +18,12 @@
 		EC32C5542531FB53006AB5D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC32C5522531FB53006AB5D6 /* LaunchScreen.storyboard */; };
 		EC32C55F2531FB53006AB5D6 /* CleanArchitectureTemplateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC32C55E2531FB53006AB5D6 /* CleanArchitectureTemplateTests.swift */; };
 		EC32C56A2531FB53006AB5D6 /* CleanArchitectureTemplateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC32C5692531FB53006AB5D6 /* CleanArchitectureTemplateUITests.swift */; };
+		EC32C62C2532174C006AB5D6 /* data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC32C62B2532174C006AB5D6 /* data.framework */; };
+		EC32C62D2532174C006AB5D6 /* data.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC32C62B2532174C006AB5D6 /* data.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EC32C6302532174F006AB5D6 /* domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC32C62F2532174F006AB5D6 /* domain.framework */; };
+		EC32C6312532174F006AB5D6 /* domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC32C62F2532174F006AB5D6 /* domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EC32C63325321754006AB5D6 /* presentation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC32C63225321754006AB5D6 /* presentation.framework */; };
+		EC32C63425321754006AB5D6 /* presentation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC32C63225321754006AB5D6 /* presentation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +42,22 @@
 			remoteInfo = CleanArchitectureTemplate;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		EC32C62E2532174C006AB5D6 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				EC32C63425321754006AB5D6 /* presentation.framework in Embed Frameworks */,
+				EC32C6312532174F006AB5D6 /* domain.framework in Embed Frameworks */,
+				EC32C62D2532174C006AB5D6 /* data.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0D7C8317C8E3FB27C92FDC37 /* Pods-CleanArchitectureTemplate-CleanArchitectureTemplateUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanArchitectureTemplate-CleanArchitectureTemplateUITests.release.xcconfig"; path = "Target Support Files/Pods-CleanArchitectureTemplate-CleanArchitectureTemplateUITests/Pods-CleanArchitectureTemplate-CleanArchitectureTemplateUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -61,6 +83,9 @@
 		EC32C5652531FB53006AB5D6 /* CleanArchitectureTemplateUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleanArchitectureTemplateUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC32C5692531FB53006AB5D6 /* CleanArchitectureTemplateUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanArchitectureTemplateUITests.swift; sourceTree = "<group>"; };
 		EC32C56B2531FB53006AB5D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC32C62B2532174C006AB5D6 /* data.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = data.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC32C62F2532174F006AB5D6 /* domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC32C63225321754006AB5D6 /* presentation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = presentation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +93,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC32C62C2532174C006AB5D6 /* data.framework in Frameworks */,
+				EC32C6302532174F006AB5D6 /* domain.framework in Frameworks */,
+				EC32C63325321754006AB5D6 /* presentation.framework in Frameworks */,
 				9E77184C1EA1644579E8EC39 /* Pods_CleanArchitectureTemplate.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -94,6 +122,9 @@
 		B97DAF55CBC7021E9622EF76 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EC32C63225321754006AB5D6 /* presentation.framework */,
+				EC32C62F2532174F006AB5D6 /* domain.framework */,
+				EC32C62B2532174C006AB5D6 /* data.framework */,
 				4E80F4E892EB7851916A38A7 /* Pods_CleanArchitectureTemplate.framework */,
 				A0B0645A13B0060FB62D7EFA /* Pods_CleanArchitectureTemplate_CleanArchitectureTemplateUITests.framework */,
 				526552AEA3391862AF86D2D0 /* Pods_CleanArchitectureTemplateTests.framework */,
@@ -165,7 +196,6 @@
 				E1F61DEC0B13A820B040801C /* Pods-CleanArchitectureTemplateTests.debug.xcconfig */,
 				AC05A33188B730A2D901C837 /* Pods-CleanArchitectureTemplateTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -180,6 +210,7 @@
 				EC32C5402531FB50006AB5D6 /* Sources */,
 				EC32C5412531FB50006AB5D6 /* Frameworks */,
 				EC32C5422531FB50006AB5D6 /* Resources */,
+				EC32C62E2532174C006AB5D6 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
