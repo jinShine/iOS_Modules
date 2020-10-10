@@ -5,6 +5,15 @@
       location = "group:CleanArchitectureTemplate.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:presentation/presentation.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:domain/domain.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:data/data.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>
