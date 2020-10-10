@@ -1,9 +1,9 @@
 //
 //  AppDelegate.swift
-//  LottieModule
+//  CleanArchitectureTemplate
 //
-//  Created by Jinnify on 2020/09/21.
-//  Copyright © 2020 Jinnify. All rights reserved.
+//  Created by Buzz.Kim on 2020/10/10.
+//  Copyright © 2020 jinnify. All rights reserved.
 //
 
 import UIKit
