@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC21169A253730A500B90DAC /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC211699253730A500B90DAC /* PostViewModel.swift */; };
+		EC21169C253731E200B90DAC /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC21169B253731E200B90DAC /* PostViewController.swift */; };
 		EC32C61B25320609006AB5D6 /* presentation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC32C61125320608006AB5D6 /* presentation.framework */; };
 		EC32C62025320609006AB5D6 /* presentationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC32C61F25320609006AB5D6 /* presentationTests.swift */; };
 		EC32C62225320609006AB5D6 /* presentation.h in Headers */ = {isa = PBXBuildFile; fileRef = EC32C61425320608006AB5D6 /* presentation.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -39,6 +41,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		EC211699253730A500B90DAC /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
+		EC21169B253731E200B90DAC /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		EC32C61125320608006AB5D6 /* presentation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = presentation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC32C61425320608006AB5D6 /* presentation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = presentation.h; sourceTree = "<group>"; };
 		EC32C61525320608006AB5D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -92,6 +96,8 @@
 			children = (
 				EC32C61425320608006AB5D6 /* presentation.h */,
 				EC32C61525320608006AB5D6 /* Info.plist */,
+				EC211699253730A500B90DAC /* PostViewModel.swift */,
+				EC21169B253731E200B90DAC /* PostViewController.swift */,
 			);
 			path = presentation;
 			sourceTree = "<group>";
@@ -176,6 +182,7 @@
 				TargetAttributes = {
 					EC32C61025320608006AB5D6 = {
 						CreatedOnToolsVersion = 11.6;
+						LastSwiftMigration = 1160;
 					};
 					EC32C61925320609006AB5D6 = {
 						CreatedOnToolsVersion = 11.6;
@@ -223,6 +230,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC21169C253731E200B90DAC /* PostViewController.swift in Sources */,
+				EC21169A253730A500B90DAC /* PostViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,6 +377,7 @@
 		EC32C62625320609006AB5D6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = CNMQE42DQF;
@@ -384,6 +394,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jinnify.presentation;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -392,6 +403,7 @@
 		EC32C62725320609006AB5D6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = CNMQE42DQF;
@@ -416,6 +428,7 @@
 		EC32C62925320609006AB5D6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CNMQE42DQF;
 				INFOPLIST_FILE = presentationTests/Info.plist;
@@ -434,6 +447,7 @@
 		EC32C62A25320609006AB5D6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CNMQE42DQF;
 				INFOPLIST_FILE = presentationTests/Info.plist;
