@@ -10,6 +10,9 @@
 		EC32C5F7253203B2006AB5D6 /* domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC32C5ED253203B2006AB5D6 /* domain.framework */; };
 		EC32C5FC253203B2006AB5D6 /* domainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC32C5FB253203B2006AB5D6 /* domainTests.swift */; };
 		EC32C5FE253203B2006AB5D6 /* domain.h in Headers */ = {isa = PBXBuildFile; fileRef = EC32C5F0253203B2006AB5D6 /* domain.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC32C64125321E71006AB5D6 /* PostEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC32C64025321E71006AB5D6 /* PostEntity.swift */; };
+		EC32C64525321E97006AB5D6 /* PostInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC32C64425321E97006AB5D6 /* PostInteractor.swift */; };
+		EC32C64725321FF8006AB5D6 /* PostRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC32C64625321FF8006AB5D6 /* PostRepositoryProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +32,9 @@
 		EC32C5F6253203B2006AB5D6 /* domainTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = domainTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC32C5FB253203B2006AB5D6 /* domainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = domainTests.swift; sourceTree = "<group>"; };
 		EC32C5FD253203B2006AB5D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC32C64025321E71006AB5D6 /* PostEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostEntity.swift; sourceTree = "<group>"; };
+		EC32C64425321E97006AB5D6 /* PostInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostInteractor.swift; sourceTree = "<group>"; };
+		EC32C64625321FF8006AB5D6 /* PostRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRepositoryProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +79,7 @@
 			children = (
 				EC32C5F0253203B2006AB5D6 /* domain.h */,
 				EC32C5F1253203B2006AB5D6 /* Info.plist */,
+				EC32C63F25321E5B006AB5D6 /* Posts */,
 			);
 			path = domain;
 			sourceTree = "<group>";
@@ -84,6 +91,16 @@
 				EC32C5FD253203B2006AB5D6 /* Info.plist */,
 			);
 			path = domainTests;
+			sourceTree = "<group>";
+		};
+		EC32C63F25321E5B006AB5D6 /* Posts */ = {
+			isa = PBXGroup;
+			children = (
+				EC32C64025321E71006AB5D6 /* PostEntity.swift */,
+				EC32C64425321E97006AB5D6 /* PostInteractor.swift */,
+				EC32C64625321FF8006AB5D6 /* PostRepositoryProtocol.swift */,
+			);
+			path = Posts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,6 +165,7 @@
 				TargetAttributes = {
 					EC32C5EC253203B2006AB5D6 = {
 						CreatedOnToolsVersion = 11.6;
+						LastSwiftMigration = 1160;
 					};
 					EC32C5F5253203B2006AB5D6 = {
 						CreatedOnToolsVersion = 11.6;
@@ -195,6 +213,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC32C64525321E97006AB5D6 /* PostInteractor.swift in Sources */,
+				EC32C64725321FF8006AB5D6 /* PostRepositoryProtocol.swift in Sources */,
+				EC32C64125321E71006AB5D6 /* PostEntity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +361,7 @@
 		EC32C602253203B2006AB5D6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = CNMQE42DQF;
@@ -356,6 +378,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jinnify.domain;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -364,6 +387,7 @@
 		EC32C603253203B2006AB5D6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = CNMQE42DQF;
@@ -388,6 +412,7 @@
 		EC32C605253203B2006AB5D6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CNMQE42DQF;
 				INFOPLIST_FILE = domainTests/Info.plist;
@@ -406,6 +431,7 @@
 		EC32C606253203B2006AB5D6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CNMQE42DQF;
 				INFOPLIST_FILE = domainTests/Info.plist;
