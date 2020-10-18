@@ -27,7 +27,7 @@ class AlbumViewController: UIViewController {
   }
 }
 
-fileprivate extension AlbumViewController {
+extension AlbumViewController {
   func initView() {
     let imgWidth = (collectionView.frame.width - (kCellSpacing * (CGFloat(kColumnCnt) - 1))) / CGFloat(kColumnCnt)
     targetSize = CGSize(width: imgWidth, height: imgWidth)
