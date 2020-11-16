@@ -8,6 +8,10 @@
 import UIKit
 import CloudKit
 
+protocol FeedProtocol: class {
+  func feed(record: CKRecord?)
+}
+
 class EnrollmentViewController: UIViewController {
 
   @IBOutlet weak var titleTextField: UITextField!
@@ -15,6 +19,7 @@ class EnrollmentViewController: UIViewController {
   @IBOutlet weak var selectedImageView: UIImageView!
   
   var selectedImageURL: URL?
+  weak var feedDelegate: FeedProtocol?
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -63,10 +68,13 @@ class EnrollmentViewController: UIViewController {
       }
       
       print("Success upload to cloud")
-      self.navigationController?.popViewController(animated: true)
+      self.feedDelegate?.feed(record: record)
+      DispatchQueue.main.async {
+        self.navigationController?.popViewController(animated: true)
+      }
     }
   }
-  
+
 }
 
 extension EnrollmentViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
