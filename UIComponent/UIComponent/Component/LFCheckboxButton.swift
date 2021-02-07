@@ -1,8 +1,8 @@
 //
-//  RadioButton.swift
+//  LFCheckboxButton.swift
 //  Common
 //
-//  Created by buzz on 2021/01/27.
+//  Created by buzz on 2021/02/05.
 //
 
 import RxCocoa
@@ -10,13 +10,21 @@ import RxSwift
 import UIKit
 import NSObject_Rx
 
-public class RadioButton: UIButton {
+/**
+ [UI 제플린에서 보기](https://zpl.io/2jglkgA)
+ */
+
+public class LFCheckboxButton: Button {
+  
+  // MARK: - Properties
   
   public override var isSelected: Bool {
     didSet {
-      changeRadioState(by: isSelected)
+      changeCheckboxState(by: isSelected)
     }
   }
+  
+  // MARK: - Initialize
   
   public override init(frame: CGRect) {
     super.init(frame: frame)
@@ -30,9 +38,9 @@ public class RadioButton: UIButton {
     bind()
   }
   
+  // MARK: - Setup
+  
   private func setupUI() {
-    isUserInteractionEnabled = true
-    
     setDisabledImage()
     updateUI()
   }
@@ -41,31 +49,40 @@ public class RadioButton: UIButton {
     setNeedsDisplay()
   }
   
+}
+
+// MARK: - Binding methods
+
+extension LFCheckboxButton {
+  
   private func bind() {
     rx.tap
       .bind { [weak self] in self?.isSelectedToggle() }
       .disposed(by: rx.disposeBag)
   }
+  
 }
 
-extension RadioButton {
+// MARK: - Helper methods
+
+extension LFCheckboxButton {
   
   private func isSelectedToggle() {
     isSelected = !isSelected
     toggleAnimation()
   }
   
-  private func changeRadioState(by isSelected: Bool) {
+  private func changeCheckboxState(by isSelected: Bool) {
     isSelected ? setSelectedImage() : setDisabledImage()
   }
   
   private func setSelectedImage() {
-    let image = Theme.image.radioSelected.withRenderingMode(.alwaysOriginal)
+    let image = Theme.image.checkboxSelected.withRenderingMode(.alwaysOriginal)
     setImage(image, for: .normal)
   }
   
   private func setDisabledImage() {
-    let image = Theme.image.radioDisabled.withRenderingMode(.alwaysOriginal)
+    let image = Theme.image.checkboxDisabled.withRenderingMode(.alwaysOriginal)
     setImage(image, for: .normal)
   }
   
@@ -77,4 +94,3 @@ extension RadioButton {
     }
   }
 }
-

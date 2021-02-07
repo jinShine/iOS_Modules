@@ -1,8 +1,8 @@
 //
-//  CheckboxButton.swift
+//  LFRadioButton.swift
 //  Common
 //
-//  Created by buzz on 2021/01/27.
+//  Created by buzz on 2021/02/05.
 //
 
 import RxCocoa
@@ -10,13 +10,21 @@ import RxSwift
 import UIKit
 import NSObject_Rx
 
-public class CheckboxButton: UIButton {
+/**
+ [UI 제플린에서 보기](https://zpl.io/VY6JWLp)
+ */
+
+public class LFRadioButton: Button {
+  
+  // MARK: - Properties
   
   public override var isSelected: Bool {
     didSet {
-      changeCheckboxState(by: isSelected)
+      changeRadioState(by: isSelected)
     }
   }
+  
+  // MARK: - Initialize
   
   public override init(frame: CGRect) {
     super.init(frame: frame)
@@ -30,10 +38,10 @@ public class CheckboxButton: UIButton {
     bind()
   }
   
+  // MARK: - Setup
+  
   private func setupUI() {
-    isUserInteractionEnabled = true
-    
-    setDisabledImage()
+    setupDisabledImage()
     updateUI()
   }
   
@@ -41,31 +49,40 @@ public class CheckboxButton: UIButton {
     setNeedsDisplay()
   }
   
+}
+
+// MARK: - Binding methods
+
+extension LFRadioButton {
+  
   private func bind() {
     rx.tap
       .bind { [weak self] in self?.isSelectedToggle() }
       .disposed(by: rx.disposeBag)
   }
+  
 }
 
-extension CheckboxButton {
+// MARK: - Helper methods
+
+extension LFRadioButton {
   
   private func isSelectedToggle() {
     isSelected = !isSelected
     toggleAnimation()
   }
   
-  private func changeCheckboxState(by isSelected: Bool) {
-    isSelected ? setSelectedImage() : setDisabledImage()
+  private func changeRadioState(by isSelected: Bool) {
+    isSelected ? setupSelectedImage() : setupDisabledImage()
   }
   
-  private func setSelectedImage() {
-    let image = Theme.image.checkboxSelected.withRenderingMode(.alwaysOriginal)
+  private func setupSelectedImage() {
+    let image = Theme.image.radioSelected.withRenderingMode(.alwaysOriginal)
     setImage(image, for: .normal)
   }
   
-  private func setDisabledImage() {
-    let image = Theme.image.checkboxDisabled.withRenderingMode(.alwaysOriginal)
+  private func setupDisabledImage() {
+    let image = Theme.image.radioDisabled.withRenderingMode(.alwaysOriginal)
     setImage(image, for: .normal)
   }
   
@@ -77,3 +94,5 @@ extension CheckboxButton {
     }
   }
 }
+
+
