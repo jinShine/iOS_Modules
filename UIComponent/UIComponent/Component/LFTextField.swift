@@ -11,6 +11,10 @@ import UIKit
 import SnapKit
 import NSObject_Rx
 
+/**
+ [UI 제플린에서 보기](https://zpl.io/V0XmJYO)
+ */
+
 public class LFTextField: UIView {
   
   // MARK: - Constant
@@ -30,16 +34,15 @@ public class LFTextField: UIView {
   
   // MARK: - UI Properties
   
-  private let titleLabel: Label = {
-    let label = Label(0, 8, 0, 8)
+  private let placeholderLabel: Label = {
+    let label = Label()
     label.backgroundColor = Theme.color.white
-    label.textColor = Theme.color.ttGray010
-    label.font = Theme.font.caption2Bold
-    label.text = "Title"
+    label.textColor = Theme.color.sdGray010
+    label.font = Theme.font.body1Regular
     return label
   }()
   
-  lazy var containerStackView: StackView = {
+  private lazy var containerStackView: StackView = {
     let stackView = StackView(arrangedSubviews: [textFieldContainerView, optionContainerView])
     stackView.axis = .vertical
     stackView.distribution = .fill
@@ -92,23 +95,25 @@ public class LFTextField: UIView {
   // MARK: - Properties
   
   /// 입력되는 텍스트 Subject
-  public let textSubject = BehaviorRelay<String>(value: "")
-  
-  /// 상단 타이틀
-  public var title: String {
-    get { titleLabel.text ?? "" }
-    set { titleLabel.text = newValue }
-  }
+  public let didEditingText = BehaviorRelay<String>(value: "")
   
   /// placeholder
-  public var placeholder: String = "" {
-    didSet { textField.placeholder = placeholder }
+  public var placeholder: String {
+    get {
+      placeholderLabel.text ?? ""
+    }
+    set {
+      textField.placeholder = ""
+      placeholderLabel.text = newValue
+    }
   }
   
   /// 입력 내용
-  public var text: String {
-    get { textField.text ?? "" }
-    set { textField.text = newValue }
+  public var text: String = "" {
+    didSet {
+      textField.text = text
+      updatePlaceholderLabel()
+    }
   }
   
   /// 하단에 에러,상태 등 설명을 나타내는 메세지
@@ -166,18 +171,19 @@ public class LFTextField: UIView {
   
   private func setupUI() {
     isUserInteractionEnabled = true
-    addSubviews([containerStackView, titleLabel])
+    addSubviews([containerStackView, placeholderLabel])
     
     setupConstraints()
   }
   
   private func setupConstraints() {
-    titleLabel.snp.makeConstraints {
-      $0.top.equalToSuperview()
-      $0.leading.equalToSuperview().offset(8)
-      $0.height.equalTo(14)
-    }
     
+    placeholderLabel.snp.makeConstraints {
+      $0.leading.trailing.equalTo(textField)
+      $0.size.equalTo(textField)
+      $0.center.equalTo(textField)
+    }
+
     containerStackView.snp.makeConstraints {
       $0.top.equalToSuperview().offset(7)
       $0.leading.trailing.bottom.equalToSuperview()
@@ -232,14 +238,9 @@ extension LFTextField {
     editingDidBegin
       .subscribe(onNext: {
         self.setupFocused()
+        self.setupMaxLengthAttributed(keyword: self.text, limitedBy: self.maxLength)
       }).disposed(by: rx.disposeBag)
-    
-    editingDidBegin
-      .withLatestFrom(self.textField.rx.text.orEmpty)
-      .subscribe(onNext: { text in
-        self.setupMaxLengthAttributed(keyword: text, limitedBy: self.maxLength)
-      }).disposed(by: rx.disposeBag)
-    
+
     textField.rx.controlEvent(.editingDidEnd)
       .subscribe(onNext: {
         self.setupUnfocused()
@@ -249,7 +250,7 @@ extension LFTextField {
     
     didInputText
       .subscribe(onNext: { [weak self] in
-        self?.textSubject.accept($0)
+        self?.didEditingText.accept($0)
         self?.textField.text = $0
       }).disposed(by: rx.disposeBag)
     
@@ -281,6 +282,15 @@ extension LFTextField {
 
 extension LFTextField {
   
+  private func isTextEmpty() -> Bool {
+    guard let text = textField.text else { return false }
+    return text.isEmpty
+  }
+  
+  private func updatePlaceholderLabel() {
+    isTextEmpty() ? setupPlaceholderWhenUnfocused() : setupPlaceholderWhenFocused()
+  }
+
   private func isMaxLengthZero() -> Bool {
     return maxLength == 0
   }
@@ -317,17 +327,56 @@ extension LFTextField {
     
     message.isEmpty && isMaxLengthZero() ? hideOption() : showOption()
     textFieldContainerView.layer.borderColor = Theme.color.black.cgColor
-    statusImageButton.setImage(Theme.image.close.withRenderingMode(.alwaysOriginal), for: .normal)
+    statusImageButton.setImage(Theme.image.close24.withRenderingMode(.alwaysOriginal), for: .normal)
+    
+
+    setupPlaceholderWhenFocused { [weak self] in
+      self?.update(withDuration: 0.1)
+    }
   }
   
   private func setupUnfocused() {
     style = lastSavedStyle
+    
+    setupPlaceholderWhenUnfocused { [weak self] in
+      self?.update(withDuration: 0.1)
+    }
+  }
+  
+  private func setupPlaceholderWhenFocused(_ completion: (() -> Void)? = nil) {
+    placeholderLabel.insets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
+    placeholderLabel.textColor = Theme.color.ttGray010
+    placeholderLabel.font = Theme.font.caption2Bold
+
+    self.placeholderLabel.snp.remakeConstraints {
+      $0.top.equalToSuperview()
+      $0.leading.equalToSuperview().offset(8)
+      $0.height.equalTo(14)
+    }
+    
+    completion?()
+  }
+  
+  private func setupPlaceholderWhenUnfocused(_ completion: (() -> Void)? = nil) {
+    guard isTextEmpty() else { return }
+    
+    placeholderLabel.insets = UIEdgeInsets.zero
+    placeholderLabel.textColor = Theme.color.sdGray010
+    placeholderLabel.font = Theme.font.body1Regular
+    
+    placeholderLabel.snp.remakeConstraints {
+      $0.leading.trailing.equalTo(textField)
+      $0.size.equalTo(textField)
+      $0.center.equalTo(textField)
+    }
+    
+    completion?()
   }
   
   private func setupNormalStyle() {
     isUserInteractionEnabled = true
     
-    titleLabel.textColor = Theme.color.ttGray010
+    placeholderLabel.textColor = Theme.color.ttGray010
     
     textFieldContainerView.layer.borderColor = Theme.color.ttGray090.cgColor
     
@@ -341,7 +390,7 @@ extension LFTextField {
   private func setupSuccessStyle() {
     isUserInteractionEnabled = true
     
-    titleLabel.textColor = Theme.color.green
+    placeholderLabel.textColor = Theme.color.green
     
     textFieldContainerView.layer.borderColor = Theme.color.green.cgColor
     
@@ -355,7 +404,7 @@ extension LFTextField {
   private func setupWarningStyle() {
     isUserInteractionEnabled = true
     
-    titleLabel.textColor = Theme.color.yellow
+    placeholderLabel.textColor = Theme.color.yellow
     
     textFieldContainerView.layer.borderColor = Theme.color.yellow.cgColor
     
@@ -369,7 +418,7 @@ extension LFTextField {
   private func setupErrorStyle() {
     isUserInteractionEnabled = true
     
-    titleLabel.textColor = Theme.color.orange
+    placeholderLabel.textColor = Theme.color.orange
     
     textFieldContainerView.layer.borderColor = Theme.color.orange.cgColor
     
@@ -383,7 +432,7 @@ extension LFTextField {
   private func setupDisabledStyle() {
     isUserInteractionEnabled = false
     
-    titleLabel.textColor = Theme.color.ttGray030
+    placeholderLabel.textColor = Theme.color.ttGray030
     
     textFieldContainerView.layer.borderColor = Theme.color.ttGray090.cgColor
     
@@ -413,6 +462,11 @@ extension LFTextField {
     }
   }
   
+  private func update(withDuration: TimeInterval) {
+    UIView.animate(withDuration: withDuration) {
+      self.layoutIfNeeded()
+    }
+  }
 }
 
 // MARK: - UITextField delegate
@@ -436,5 +490,4 @@ extension LFTextField: UITextFieldDelegate {
     
     return false
   }
-  
 }
