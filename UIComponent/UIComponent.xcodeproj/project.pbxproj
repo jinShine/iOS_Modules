@@ -41,6 +41,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6B199E1025ECAB6500C8194F /* SubPagerTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubPagerTabViewController.swift; sourceTree = "<group>"; };
+		6B199E1125ECAB6500C8194F /* MainPagerTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPagerTabViewController.swift; sourceTree = "<group>"; };
+		6B199E1225ECAB6500C8194F /* PagerTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerTabView.swift; sourceTree = "<group>"; };
+		6B199E1325ECAB6500C8194F /* DetailsPagerTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPagerTabViewController.swift; sourceTree = "<group>"; };
+		6B199E1425ECAB6500C8194F /* FilterPagerTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPagerTabViewController.swift; sourceTree = "<group>"; };
 		6B70972825C5521600CE6788 /* UIComponent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIComponent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B70972B25C5521600CE6788 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6B70972D25C5521700CE6788 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +96,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6B199E0F25ECAB5600C8194F /* PagerTabView */ = {
+			isa = PBXGroup;
+			children = (
+				6B199E1325ECAB6500C8194F /* DetailsPagerTabViewController.swift */,
+				6B199E1425ECAB6500C8194F /* FilterPagerTabViewController.swift */,
+				6B199E1125ECAB6500C8194F /* MainPagerTabViewController.swift */,
+				6B199E1225ECAB6500C8194F /* PagerTabView.swift */,
+				6B199E1025ECAB6500C8194F /* SubPagerTabViewController.swift */,
+			);
+			path = PagerTabView;
+			sourceTree = "<group>";
+		};
 		6B70971F25C5521600CE6788 = {
 			isa = PBXGroup;
 			children = (
@@ -147,6 +164,7 @@
 		6B70975E25C5521C00CE6788 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				6B199E0F25ECAB5600C8194F /* PagerTabView */,
 				6BD2D57C25D02E7D00A36AB1 /* LFCheckboxButton.swift */,
 				6BD2D57B25D02E7D00A36AB1 /* LFRadioButton.swift */,
 				6BD2D57D25D02E7D00A36AB1 /* LFSearchBar.swift */,
