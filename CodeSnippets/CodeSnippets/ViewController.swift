@@ -35,6 +35,8 @@ final class <#ViewController#>: ViewController {
     fatalError("init(coder:) has not been implemented")
   }
 
+  // MARK: - Life cycle
+
   // MARK: - Setup
 
   override func setupUI() {
