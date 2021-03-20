@@ -16,7 +16,7 @@ protocol <#ViewModel#>Bindable {
   // Output
 }
 
-final class <#ViewModel#>: ViewModel, <#ViewModel#>Bindable {
+final class <#ViewModel#>: <#ViewModel#>Bindable {
 
   // MARK: Input
 
@@ -26,8 +26,7 @@ final class <#ViewModel#>: ViewModel, <#ViewModel#>Bindable {
 
   // MARK: - Initialize
 
-  override init(
-  ) {
+  init() {
 
   }
 }
