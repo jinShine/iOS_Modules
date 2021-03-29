@@ -1,0 +1,5 @@
+app_identifier("io.lific.consumer") # The bundle identifier of your app
+apple_id("development@lific.io") # Your Apple email address
+
+team_id "QGFZCPYLU4"
+itc_team_id "122537032"
