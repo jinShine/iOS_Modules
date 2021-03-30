@@ -1,7 +1,7 @@
 default_platform(:ios)
 
 platform :ios do
-  desc "Stage서버 테스트플라이트 업로드"
+  desc "Stage 서버 테스트플라이트 업로드"
   lane :stage do
     increment_build_number
     build_app(
