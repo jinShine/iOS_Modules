@@ -1,8 +1,8 @@
 //
-//  NaverManasger.swift
-//  NaverModule
+//  NaverManager.swift
+//  Consumer
 //
-//  Created by buzz on 2021/03/26.
+//  Created by buzz on 2021/03/24.
 //
 
 import Alamofire
@@ -64,6 +64,8 @@ class NaverManager: NSObject {
   }
 }
 
+// MARK: - RxNaverManagerProxy
+
 class RxNaverManagerProxy: DelegateProxy<NaverManager, NaverThirdPartyLoginConnectionDelegate>, DelegateProxyType, NaverThirdPartyLoginConnectionDelegate {
 
   // MARK: - DelegateProxyType
@@ -112,7 +114,6 @@ class RxNaverManagerProxy: DelegateProxy<NaverManager, NaverThirdPartyLoginConne
 
   // MARK: - Helper method
 
-  // get user info
   func requestUserEmail() -> Observable<String> {
     return Observable<String>.create { observer -> Disposable in
       guard let naver = self.naver, naver.isValidAccessTokenExpireTimeNow() else {
@@ -141,6 +142,8 @@ class RxNaverManagerProxy: DelegateProxy<NaverManager, NaverThirdPartyLoginConne
   }
 }
 
+// MARK: - NaverManager + Rx
+
 extension Reactive where Base: NaverManager {
 
   var delegate: DelegateProxy<NaverManager, NaverThirdPartyLoginConnectionDelegate> {
@@ -150,10 +153,13 @@ extension Reactive where Base: NaverManager {
   var userEmail: Observable<String> {
     return RxNaverManagerProxy.proxy(for: base)
       .userEmailSubject
+      .asObserver()
   }
 
   var errorMessage: Observable<String> {
     return RxNaverManagerProxy.proxy(for: base)
       .errorMessageSubject
+      .asObserver()
   }
 }
+
