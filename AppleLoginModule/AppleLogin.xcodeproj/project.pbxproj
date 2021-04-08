@@ -13,6 +13,8 @@
 		36142D28240E14B400BFBE90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36142D26240E14B400BFBE90 /* Main.storyboard */; };
 		36142D2A240E14BB00BFBE90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36142D29240E14BB00BFBE90 /* Assets.xcassets */; };
 		36142D2D240E14BB00BFBE90 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36142D2B240E14BB00BFBE90 /* LaunchScreen.storyboard */; };
+		6B3AC696261F04EA006FF015 /* AppleAppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3AC695261F04EA006FF015 /* AppleAppService.swift */; };
+		6B3AC699261F0512006FF015 /* AppleAppService+Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3AC698261F0512006FF015 /* AppleAppService+Login.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,8 @@
 		36142D2C240E14BB00BFBE90 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		36142D2E240E14BB00BFBE90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		36142D34240E330800BFBE90 /* AppleLogin.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AppleLogin.entitlements; sourceTree = "<group>"; };
+		6B3AC695261F04EA006FF015 /* AppleAppService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleAppService.swift; sourceTree = "<group>"; };
+		6B3AC698261F0512006FF015 /* AppleAppService+Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppleAppService+Login.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +65,8 @@
 				36142D20240E14B400BFBE90 /* AppDelegate.swift */,
 				36142D22240E14B400BFBE90 /* SceneDelegate.swift */,
 				36142D24240E14B400BFBE90 /* ViewController.swift */,
+				6B3AC695261F04EA006FF015 /* AppleAppService.swift */,
+				6B3AC698261F0512006FF015 /* AppleAppService+Login.swift */,
 				36142D26240E14B400BFBE90 /* Main.storyboard */,
 				36142D29240E14BB00BFBE90 /* Assets.xcassets */,
 				36142D2B240E14BB00BFBE90 /* LaunchScreen.storyboard */,
@@ -140,6 +146,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B3AC696261F04EA006FF015 /* AppleAppService.swift in Sources */,
+				6B3AC699261F0512006FF015 /* AppleAppService+Login.swift in Sources */,
 				36142D25240E14B400BFBE90 /* ViewController.swift in Sources */,
 				36142D21240E14B400BFBE90 /* AppDelegate.swift in Sources */,
 				36142D23240E14B400BFBE90 /* SceneDelegate.swift in Sources */,
