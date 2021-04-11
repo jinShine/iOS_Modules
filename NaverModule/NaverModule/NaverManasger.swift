@@ -5,14 +5,11 @@
 //  Created by buzz on 2021/03/24.
 //
 
-import Alamofire
 import Common
 import Foundation
 import NaverThirdPartyLogin
-import RxCocoa
-import RxSwift
 
-class NaverManager: NSObject {
+class NaverAppService: NSObject, AppService {
 
   let naver: NaverThirdPartyLoginConnection
 
@@ -21,18 +18,62 @@ class NaverManager: NSObject {
     super.init()
   }
 
-  static func naverLoginOpenURL(openURLContexts URLContexts: Set<UIOpenURLContext>) {
+  func configure() {
+    guard let id = Application.shared.config.naverClientId,
+          let secret = Application.shared.config.naverClientSecret else {
+      return
+    }
+
+    // 네이버 앱으로 인증하는 방식 활성화
+    naver.isNaverAppOauthEnable = true
+    // SafariViewController에서 인증하는 방식 활성화
+    naver.isInAppOauthEnable = true
+    // 인증 화면을 iPhone의 세로 모드에서만 사용
+    naver.isOnlyPortraitSupportedInIphone()
+    naver.serviceUrlScheme = Application.urlScheme
+    naver.consumerKey = id
+    naver.consumerSecret = secret
+    // TODO: 앱 이름 변경
+    naver.appName = "라이픽 소비자 앱"
+  }
+}
+
+extension NaverAppService {
+
+  /// 네이버으로부터 리다이렉트 된 URL 인지 체크 후 요청 결과를 처리
+  func naverLoginOpenURL(openURLContexts URLContexts: Set<UIOpenURLContext>) {
     if let url = URLContexts.first?.url {
       NaverThirdPartyLoginConnection.getSharedInstance()?.receiveAccessToken(url)
     }
   }
 
-  func login() {
-    naver.requestThirdPartyLogin()
+  /// 로그인
+  func login() -> Observable<Void> {
+    return Observable.create { [weak self] observer -> Disposable in
+      self?.naver.requestThirdPartyLogin()
+      observer.onCompleted()
+      return Disposables.create()
+    }
   }
 
-  func logout() {
-    naver.requestDeleteToken()
+  /// 로그아웃
+  func logout() -> Observable<Void> {
+    return Observable.create { [weak self] observer -> Disposable in
+      self?.naver.requestDeleteToken()
+      observer.onCompleted()
+      return Disposables.create()
+    }
+  }
+
+  /// 사용자 이메일
+  func userEmail() -> Observable<String> {
+//    return rx.userEmail
+    return rx.test
+  }
+
+  /// 에러 메세지
+  func errorMessage() -> Observable<String> {
+    return rx.errorMessage
   }
 
   func requestUserEmail() -> Observable<String> {
@@ -66,21 +107,21 @@ class NaverManager: NSObject {
 
 // MARK: - RxNaverManagerProxy
 
-class RxNaverManagerProxy: DelegateProxy<NaverManager, NaverThirdPartyLoginConnectionDelegate>, DelegateProxyType, NaverThirdPartyLoginConnectionDelegate {
+class RxNaverAppServiceProxy: DelegateProxy<NaverAppService, NaverThirdPartyLoginConnectionDelegate>, DelegateProxyType, NaverThirdPartyLoginConnectionDelegate {
 
   // MARK: - DelegateProxyType
 
   static func registerKnownImplementations() {
-    register { naverManager -> RxNaverManagerProxy in
-      RxNaverManagerProxy(parentObject: naverManager, delegateProxy: self)
+    register { naverAppService -> RxNaverAppServiceProxy in
+      RxNaverAppServiceProxy(parentObject: naverAppService, delegateProxy: self)
     }
   }
 
-  static func currentDelegate(for object: NaverManager) -> NaverThirdPartyLoginConnectionDelegate? {
+  static func currentDelegate(for object: NaverAppService) -> NaverThirdPartyLoginConnectionDelegate? {
     return object.naver.delegate
   }
 
-  static func setCurrentDelegate(_ delegate: NaverThirdPartyLoginConnectionDelegate?, to object: NaverManager) {
+  static func setCurrentDelegate(_ delegate: NaverThirdPartyLoginConnectionDelegate?, to object: NaverAppService) {
     return object.naver.delegate = delegate
   }
 
@@ -144,22 +185,27 @@ class RxNaverManagerProxy: DelegateProxy<NaverManager, NaverThirdPartyLoginConne
 
 // MARK: - NaverManager + Rx
 
-extension Reactive where Base: NaverManager {
+extension Reactive where Base: NaverAppService {
 
-  var delegate: DelegateProxy<NaverManager, NaverThirdPartyLoginConnectionDelegate> {
-    return RxNaverManagerProxy.proxy(for: base)
+  var delegate: DelegateProxy<NaverAppService, NaverThirdPartyLoginConnectionDelegate> {
+    return RxNaverAppServiceProxy.proxy(for: base)
   }
 
   var userEmail: Observable<String> {
-    return RxNaverManagerProxy.proxy(for: base)
+    return RxNaverAppServiceProxy.proxy(for: base)
       .userEmailSubject
       .asObserver()
   }
 
+  var test: Observable<String> {
+    return RxNaverAppServiceProxy.proxy(for: base)
+      .methodInvoked(#selector(NaverThirdPartyLoginConnectionDelegate.oauth20ConnectionDidFinishRequestACTokenWithAuthCode))
+      .flatMapLatest { _ in base.requestUserEmail() }
+  }
+
   var errorMessage: Observable<String> {
-    return RxNaverManagerProxy.proxy(for: base)
+    return RxNaverAppServiceProxy.proxy(for: base)
       .errorMessageSubject
       .asObserver()
   }
 }
-
