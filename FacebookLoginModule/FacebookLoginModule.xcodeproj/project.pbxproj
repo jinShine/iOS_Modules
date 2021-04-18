@@ -25,7 +25,7 @@
 		6B3AC70026209F60006FF015 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6B3AC70326209F60006FF015 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6B3AC70526209F60006FF015 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6B3AC70C26209F6C006FF015 /* FacebookAppService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FacebookAppService.swift; path = ../../FacebookAppService.swift; sourceTree = "<group>"; };
+		6B3AC70C26209F6C006FF015 /* FacebookAppService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookAppService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
