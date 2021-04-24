@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B39CB902634992A009CE71C /* TabNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B39CB8F2634992A009CE71C /* TabNavigationView.swift */; };
 		EC85A7772559906E00A40CD1 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC85A7762559906E00A40CD1 /* BaseNavigationController.swift */; };
 		ECCA4A4C2557101A000407CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCA4A4B2557101A000407CE /* AppDelegate.swift */; };
 		ECCA4A4E2557101A000407CE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCA4A4D2557101A000407CE /* SceneDelegate.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6B39CB8F2634992A009CE71C /* TabNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabNavigationView.swift; sourceTree = "<group>"; };
 		EC85A7762559906E00A40CD1 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		ECCA4A482557101A000407CE /* CustomNavigationBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomNavigationBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECCA4A4B2557101A000407CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				ECCA4A592557101C000407CE /* Info.plist */,
 				ECCA4A5F25571335000407CE /* SecondViewController.swift */,
 				EC85A7762559906E00A40CD1 /* BaseNavigationController.swift */,
+				6B39CB8F2634992A009CE71C /* TabNavigationView.swift */,
 			);
 			path = CustomNavigationBar;
 			sourceTree = "<group>";
@@ -146,6 +149,7 @@
 			files = (
 				ECCA4A6025571335000407CE /* SecondViewController.swift in Sources */,
 				ECCA4A502557101A000407CE /* ViewController.swift in Sources */,
+				6B39CB902634992A009CE71C /* TabNavigationView.swift in Sources */,
 				EC85A7772559906E00A40CD1 /* BaseNavigationController.swift in Sources */,
 				ECCA4A4C2557101A000407CE /* AppDelegate.swift in Sources */,
 				ECCA4A4E2557101A000407CE /* SceneDelegate.swift in Sources */,

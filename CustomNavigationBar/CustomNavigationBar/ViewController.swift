@@ -41,4 +41,38 @@ class ViewController: UIViewController {
     
   }
 
+  private func setupUI() {
+    interactivePopGestureRecognizer?.delegate = self
+
+    let navigationBarAppearance = UINavigationBar.appearance()
+    navigationBarAppearance.isTranslucent = false
+    navigationBarAppearance.tintColor = Theme.color.black
+    navigationBarAppearance.setBackgroundImage(UIImage(), for: .default)
+    navigationBarAppearance.shadowImage = UIImage()
+
+    let backArrowImage = Theme.image.backArrow.withAlignmentRectInsets(
+      UIEdgeInsets(top: 0, left: -Constants.margin8, bottom: 0, right: 0)
+    )
+    navigationBarAppearance.backIndicatorImage = backArrowImage
+    navigationBarAppearance.backIndicatorTransitionMaskImage = backArrowImage
+    UIBarButtonItem.appearance().setTitleTextAttributes(
+      [.foregroundColor: UIColor.clear], for: .normal
+    )
+    UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(
+      UIOffset(horizontal: -1000, vertical: 0), for: UIBarMetrics.default
+    )
+
+    navigationBar.titleTextAttributes = [
+      .foregroundColor: Theme.color.black,
+      .font: Theme.font.body2Regular
+    ]
+
+    navigationBar.largeTitleTextAttributes = [
+      .foregroundColor: Theme.color.black,
+      .font: Theme.font.heading5Bold
+    ]
+  }
+
 }
+
+
