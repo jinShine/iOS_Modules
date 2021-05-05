@@ -6,73 +6,45 @@
 //
 
 import Alamofire
-import Foundation
 import Moya
 import RxCocoa
 import RxSwift
 
-public protocol LificNetworkable {
+public typealias Default = String
 
-  func request<T: Decodable>(
-    to router: ConsumerRouter,
-    decode: T.Type
-  ) -> Single<CommonResponse<T>>
-}
+public class NetworkService<Router: TargetType> {
 
-extension NetworkService: LificNetworkable {
+  private let dispatchQueue = DispatchQueue(label: "queue.consumer.parser")
 
-  private static let sharedManager: Alamofire.Session = {
-    let configuration = URLSessionConfiguration.default
-    configuration.headers = HTTPHeaders.default
-    configuration.timeoutIntervalForRequest = 30
-    configuration.timeoutIntervalForResource = 30
-    configuration.requestCachePolicy = NSURLRequest.CachePolicy.useProtocolCachePolicy
-    return Alamofire.Session(configuration: configuration)
-  }()
+  public var provider: MoyaProvider<Router>
 
-  public var provider: MoyaProvider<ConsumerRouter> {
-    let provider = MoyaProvider<ConsumerRouter>(
+  public init() {
+    provider = MoyaProvider<Router>(
       endpointClosure: MoyaProvider.defaultEndpointMapping,
-      requestClosure: MoyaProvider<ConsumerRouter>.defaultRequestMapping,
+      requestClosure: MoyaProvider<Router>.defaultRequestMapping,
       stubClosure: MoyaProvider.neverStub,
       callbackQueue: nil,
-      session: NetworkService.sharedManager,
+      session: AlamofireSession.configuration,
       plugins: [NetworkLoggerPlugin()],
       trackInflights: false
     )
-
-    return provider
   }
+}
+
+extension NetworkService: Networkable {
 
   public func request<T: Decodable>(
-    to router: ConsumerRouter,
+    to router: Router,
     decode: T.Type
   ) -> Single<CommonResponse<T>> {
-    let request = provider.rx.request(router).debug("111111111111")
-    let online = ReachabilityManager.shared.networkEnable()
-
-    return request
-//      .filter { $0 == true }
-//      .asSingle()
-      .flatMap { _ -> Single<Response> in
-        request
-          .debug("12312312312312")
-          .filterSuccessfulStatusCodes()
-          .do(
-            onSuccess: { response in },
-            onError: { error in
-              if let error = error as? NetworkError {
-                let errorCode = NetworkErrorCode(rawValue: error.code)
-                if errorCode == .accessTokenExpired {
-                  // accessTokenExpired
-                  if AuthManager.shared.hasValidToken {
-                    AuthManager.shared.removeToken()
-                    NotificationCenter.default.post(name: .accessTokenDidExpire, object: nil)
-                  }
-                }
-              }
-            }
-          )
-      }.map(CommonResponse<T>.self)
+    // let online = networkEnable()
+    return provider.rx.request(router, callbackQueue: dispatchQueue)
+      .filterSuccessfulStatusCodes()
+      .do(
+        onSuccess: { response in },
+        onError: { NetworkError.catchError($0) }
+      )
+      .catchErrorLific()
+      .map(CommonResponse<T>.self)
   }
 }

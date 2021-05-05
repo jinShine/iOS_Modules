@@ -6,6 +6,9 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
+import Moya
 
 public struct NetworkError: Decodable, Error {
   let code: String
@@ -16,33 +19,42 @@ public struct NetworkError: Decodable, Error {
 
 extension NetworkError {
 
-  public static func transform(jsonData: Data?) -> NetworkDataResponse {
-    do {
-      let result = try JSONDecoder().decode(NetworkError.self, from: jsonData ?? Data())
-      log.debug(result)
-      return NetworkDataResponse(
-        json: nil,
-        result: .failure,
-        error: NetworkError(code: result.code, message: result.message)
-      )
-    } catch {
-      log.debug("Decodable Error")
-      return NetworkDataResponse(
-        json: nil,
-        result: .failure,
-        error: NetworkError(code: NetworkResult.failure.rawValue, message: "Decodable Error")
-      )
+  public static func catchError(_ error: Error) {
+    if let error = error as? MoyaError {
+      switch error {
+      case .statusCode(let response):
+        let code = NetworkStatusCode(rawValue: response.statusCode)
+
+        if code != .unauthorized && code != .forbidden {
+          if AuthManager.shared.hasValidToken {
+            AuthManager.shared.removeToken()
+            NotificationCenter.default.post(name: .accessTokenDidExpire, object: nil)
+          }
+        }
+      default: break
+      }
     }
   }
+}
 
-  public static func networkFailure() -> NetworkDataResponse {
-    return NetworkDataResponse(
-      json: nil,
-      result: .failure,
-      error: NetworkError(
-        code: NetworkResult.failure.rawValue,
-        message: "네트워크가 연결되지 않았습니다.\nWIFI 또는 데이터 상태를 확인 후 다시 시도해 주세요."
-      )
-    )
+extension PrimitiveSequence where Trait == SingleTrait, Element == Response {
+
+  public func catchErrorLific() -> Single<Element> {
+    return flatMap { response in
+      if let response = try? JSONDecoder().decode(CommonResponse<Default>.self, from: response.data) {
+        let code = LificStatusCode(rawValue: response.code)
+
+        if code == .accessTokenExpired {
+          if AuthManager.shared.hasValidToken {
+            AuthManager.shared.removeToken()
+            NotificationCenter.default.post(name: .accessTokenDidExpire, object: nil)
+          }
+        }
+
+        log.debug(response.message)
+      }
+
+      return .just(response)
+    }
   }
 }

@@ -52,11 +52,9 @@
 		6BD7FD7A2640455800E80894 /* NetworkLoggerPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLoggerPlugin.swift; sourceTree = "<group>"; };
 		6BD7FD7C2640455800E80894 /* PartnerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnerRouter.swift; sourceTree = "<group>"; };
 		6BD7FD7D2640455800E80894 /* ConsumerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumerRouter.swift; sourceTree = "<group>"; };
-		6BD7FD7E2640455800E80894 /* PartnerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnerRouter.swift; sourceTree = "<group>"; };
 		6BD7FD7F2640455800E80894 /* NetworkDataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataResponse.swift; sourceTree = "<group>"; };
 		6BD7FD802640455800E80894 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		6BD7FD812640455800E80894 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
-		6BD7FD822640455800E80894 /* NetworkService+Partner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkService+Partner.swift"; sourceTree = "<group>"; };
 		6BD7FD832640455900E80894 /* NetworkService+Consumer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkService+Consumer.swift"; sourceTree = "<group>"; };
 		6BD7FD842640455900E80894 /* ConsumerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumerRouter.swift; sourceTree = "<group>"; };
 		6BD7FD852640455900E80894 /* NetworkStatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkStatusCode.swift; sourceTree = "<group>"; };
@@ -149,9 +147,7 @@
 				6BD7FD7A2640455800E80894 /* NetworkLoggerPlugin.swift */,
 				6BD7FD802640455800E80894 /* NetworkService.swift */,
 				6BD7FD832640455900E80894 /* NetworkService+Consumer.swift */,
-				6BD7FD822640455800E80894 /* NetworkService+Partner.swift */,
 				6BD7FD852640455900E80894 /* NetworkStatusCode.swift */,
-				6BD7FD7E2640455800E80894 /* PartnerRouter.swift */,
 				6BD7FD7B2640455800E80894 /* Routers */,
 			);
 			path = Networking;
