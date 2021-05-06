@@ -25,7 +25,7 @@ extension NetworkError {
       case .statusCode(let response):
         let code = NetworkStatusCode(rawValue: response.statusCode)
 
-        if code != .unauthorized && code != .forbidden {
+        if code == .unauthorized || code == .forbidden {
           if AuthManager.shared.hasValidToken {
             AuthManager.shared.removeToken()
             NotificationCenter.default.post(name: .accessTokenDidExpire, object: nil)
@@ -40,9 +40,11 @@ extension NetworkError {
 extension PrimitiveSequence where Trait == SingleTrait, Element == Response {
 
   public func catchErrorLific() -> Single<Element> {
-    return flatMap { response in
-      if let response = try? JSONDecoder().decode(CommonResponse<Default>.self, from: response.data) {
+    return flatMap {
+      if let response = try? JSONDecoder().decode(CommonResponse<Default>.self, from: $0.data) {
         let code = LificStatusCode(rawValue: response.code)
+
+        guard code != .success else { return .just($0) }
 
         if code == .accessTokenExpired {
           if AuthManager.shared.hasValidToken {
@@ -54,7 +56,7 @@ extension PrimitiveSequence where Trait == SingleTrait, Element == Response {
         log.debug(response.message)
       }
 
-      return .just(response)
+      return .just($0)
     }
   }
 }

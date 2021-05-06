@@ -50,14 +50,13 @@
 		6BD7FD6B2640453D00E80894 /* NetworkModuleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModuleUITests.swift; sourceTree = "<group>"; };
 		6BD7FD6D2640453D00E80894 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6BD7FD7A2640455800E80894 /* NetworkLoggerPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLoggerPlugin.swift; sourceTree = "<group>"; };
-		6BD7FD7C2640455800E80894 /* PartnerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnerRouter.swift; sourceTree = "<group>"; };
-		6BD7FD7D2640455800E80894 /* ConsumerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumerRouter.swift; sourceTree = "<group>"; };
-		6BD7FD7F2640455800E80894 /* NetworkDataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataResponse.swift; sourceTree = "<group>"; };
 		6BD7FD802640455800E80894 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		6BD7FD812640455800E80894 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
-		6BD7FD832640455900E80894 /* NetworkService+Consumer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkService+Consumer.swift"; sourceTree = "<group>"; };
 		6BD7FD842640455900E80894 /* ConsumerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumerRouter.swift; sourceTree = "<group>"; };
 		6BD7FD852640455900E80894 /* NetworkStatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkStatusCode.swift; sourceTree = "<group>"; };
+		6BD93F1C26442A870034C300 /* Networkable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networkable.swift; sourceTree = "<group>"; };
+		6BD93F1D26442A900034C300 /* NetworkSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSession.swift; sourceTree = "<group>"; };
+		6BD93F1E26442B5F0034C300 /* CommonResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,25 +140,16 @@
 		6BD7FD792640454100E80894 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				6BD7FD842640455900E80894 /* ConsumerRouter.swift */,
-				6BD7FD7F2640455800E80894 /* NetworkDataResponse.swift */,
-				6BD7FD812640455800E80894 /* NetworkError.swift */,
-				6BD7FD7A2640455800E80894 /* NetworkLoggerPlugin.swift */,
+				6BD93F1C26442A870034C300 /* Networkable.swift */,
+				6BD93F1D26442A900034C300 /* NetworkSession.swift */,
 				6BD7FD802640455800E80894 /* NetworkService.swift */,
-				6BD7FD832640455900E80894 /* NetworkService+Consumer.swift */,
+				6BD7FD812640455800E80894 /* NetworkError.swift */,
 				6BD7FD852640455900E80894 /* NetworkStatusCode.swift */,
-				6BD7FD7B2640455800E80894 /* Routers */,
+				6BD7FD7A2640455800E80894 /* NetworkLoggerPlugin.swift */,
+				6BD7FD842640455900E80894 /* ConsumerRouter.swift */,
+				6BD93F1E26442B5F0034C300 /* CommonResponse.swift */,
 			);
 			path = Networking;
-			sourceTree = "<group>";
-		};
-		6BD7FD7B2640455800E80894 /* Routers */ = {
-			isa = PBXGroup;
-			children = (
-				6BD7FD7C2640455800E80894 /* PartnerRouter.swift */,
-				6BD7FD7D2640455800E80894 /* ConsumerRouter.swift */,
-			);
-			path = Routers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

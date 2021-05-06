@@ -7,6 +7,12 @@
 
 import Foundation
 
-public enum NetworkErrorCode: String {
-  case accessTokenExpired = "GWY001"
+public enum NetworkStatusCode: Int {
+  case unauthorized = 401
+  case forbidden = 403
+}
+
+public enum LificStatusCode: String {
+  case success = "0"
+  case accessTokenExpired = "GWY003"
 }
