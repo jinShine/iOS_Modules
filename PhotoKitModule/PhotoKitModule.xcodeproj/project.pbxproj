@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6BFBC24B2646E65B00C0EDBB /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFBC24A2646E65B00C0EDBB /* PhotoViewController.swift */; };
+		6BFBC24E2646E6D200C0EDBB /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BFBC24D2646E6D200C0EDBB /* Photos.framework */; };
+		6BFBC2502646E8C700C0EDBB /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFBC24F2646E8C700C0EDBB /* PhotoCollectionViewCell.swift */; };
 		EC22CBB524EF5E0700B18536 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC22CBB424EF5E0700B18536 /* AppDelegate.swift */; };
 		EC22CBB724EF5E0700B18536 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC22CBB624EF5E0700B18536 /* SceneDelegate.swift */; };
 		EC22CBB924EF5E0700B18536 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC22CBB824EF5E0700B18536 /* ViewController.swift */; };
@@ -17,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6BFBC24A2646E65B00C0EDBB /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		6BFBC24D2646E6D200C0EDBB /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		6BFBC24F2646E8C700C0EDBB /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		EC22CBB124EF5E0700B18536 /* PhotoKitModule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoKitModule.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC22CBB424EF5E0700B18536 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC22CBB624EF5E0700B18536 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -33,17 +39,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BFBC24E2646E6D200C0EDBB /* Photos.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6BFBC2492646E64800C0EDBB /* Album2 */ = {
+			isa = PBXGroup;
+			children = (
+				6BFBC24A2646E65B00C0EDBB /* PhotoViewController.swift */,
+				6BFBC24F2646E8C700C0EDBB /* PhotoCollectionViewCell.swift */,
+			);
+			path = Album2;
+			sourceTree = "<group>";
+		};
+		6BFBC24C2646E6D200C0EDBB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6BFBC24D2646E6D200C0EDBB /* Photos.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EC22CBA824EF5E0700B18536 = {
 			isa = PBXGroup;
 			children = (
 				EC22CBB324EF5E0700B18536 /* PhotoKitModule */,
 				EC22CBB224EF5E0700B18536 /* Products */,
+				6BFBC24C2646E6D200C0EDBB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,6 +83,7 @@
 		EC22CBB324EF5E0700B18536 /* PhotoKitModule */ = {
 			isa = PBXGroup;
 			children = (
+				6BFBC2492646E64800C0EDBB /* Album2 */,
 				ECB5043A24F3FED000D44ADA /* Album */,
 				EC22CBB424EF5E0700B18536 /* AppDelegate.swift */,
 				EC22CBB624EF5E0700B18536 /* SceneDelegate.swift */,
@@ -153,6 +179,8 @@
 				EC22CBB924EF5E0700B18536 /* ViewController.swift in Sources */,
 				EC22CBB524EF5E0700B18536 /* AppDelegate.swift in Sources */,
 				EC22CBB724EF5E0700B18536 /* SceneDelegate.swift in Sources */,
+				6BFBC24B2646E65B00C0EDBB /* PhotoViewController.swift in Sources */,
+				6BFBC2502646E8C700C0EDBB /* PhotoCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,7 +325,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CNMQE42DQF;
+				DEVELOPMENT_TEAM = QGFZCPYLU4;
 				INFOPLIST_FILE = PhotoKitModule/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -314,8 +342,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Q447S7CYU9;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = PhotoKitModule/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -323,6 +351,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jinnify.PhotoKitModule;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
