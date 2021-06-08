@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B28FAAC266F9A8E0035E191 /* PhotoPickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B28FAAB266F9A8E0035E191 /* PhotoPickerManager.swift */; };
 		6BFBC24B2646E65B00C0EDBB /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFBC24A2646E65B00C0EDBB /* PhotoViewController.swift */; };
 		6BFBC24E2646E6D200C0EDBB /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BFBC24D2646E6D200C0EDBB /* Photos.framework */; };
 		6BFBC2502646E8C700C0EDBB /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFBC24F2646E8C700C0EDBB /* PhotoCollectionViewCell.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6B28FAAB266F9A8E0035E191 /* PhotoPickerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerManager.swift; sourceTree = "<group>"; };
 		6BFBC24A2646E65B00C0EDBB /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		6BFBC24D2646E6D200C0EDBB /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		6BFBC24F2646E8C700C0EDBB /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -46,6 +48,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6B28FAAA266F9A750035E191 /* Album3 */ = {
+			isa = PBXGroup;
+			children = (
+				6B28FAAB266F9A8E0035E191 /* PhotoPickerManager.swift */,
+			);
+			path = Album3;
+			sourceTree = "<group>";
+		};
 		6BFBC2492646E64800C0EDBB /* Album2 */ = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +93,7 @@
 		EC22CBB324EF5E0700B18536 /* PhotoKitModule */ = {
 			isa = PBXGroup;
 			children = (
+				6B28FAAA266F9A750035E191 /* Album3 */,
 				6BFBC2492646E64800C0EDBB /* Album2 */,
 				ECB5043A24F3FED000D44ADA /* Album */,
 				EC22CBB424EF5E0700B18536 /* AppDelegate.swift */,
@@ -175,6 +186,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B28FAAC266F9A8E0035E191 /* PhotoPickerManager.swift in Sources */,
 				ECEE374A250D42F800CE9CD1 /* AlbumViewController.swift in Sources */,
 				EC22CBB924EF5E0700B18536 /* ViewController.swift in Sources */,
 				EC22CBB524EF5E0700B18536 /* AppDelegate.swift in Sources */,
