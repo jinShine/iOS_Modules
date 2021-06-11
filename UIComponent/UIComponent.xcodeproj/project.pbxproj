@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6B1924AC25F8DBBB00563438 /* LFTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1924AB25F8DBBB00563438 /* LFTextFieldView.swift */; };
+		6B28FAB52673A60C0035E191 /* VibrateMotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B28FAB42673A60C0035E191 /* VibrateMotion.swift */; };
 		6B39CC532636F8EC009CE71C /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B39CC522636F8EC009CE71C /* Toast.swift */; };
 		6B70972C25C5521600CE6788 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B70972B25C5521600CE6788 /* AppDelegate.swift */; };
 		6B70972E25C5521700CE6788 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B70972D25C5521700CE6788 /* SceneDelegate.swift */; };
@@ -51,6 +52,7 @@
 		6B199E1225ECAB6500C8194F /* PagerTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerTabView.swift; sourceTree = "<group>"; };
 		6B199E1325ECAB6500C8194F /* DetailsPagerTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPagerTabViewController.swift; sourceTree = "<group>"; };
 		6B199E1425ECAB6500C8194F /* FilterPagerTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPagerTabViewController.swift; sourceTree = "<group>"; };
+		6B28FAB42673A60C0035E191 /* VibrateMotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VibrateMotion.swift; sourceTree = "<group>"; };
 		6B39CC522636F8EC009CE71C /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		6B70972825C5521600CE6788 /* UIComponent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIComponent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B70972B25C5521600CE6788 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				6B70973425C5521800CE6788 /* Assets.xcassets */,
 				6B70973625C5521800CE6788 /* LaunchScreen.storyboard */,
 				6B70973925C5521800CE6788 /* Info.plist */,
+				6B28FAB42673A60C0035E191 /* VibrateMotion.swift */,
 			);
 			path = UIComponent;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 				6B70972E25C5521700CE6788 /* SceneDelegate.swift in Sources */,
 				6B1924AC25F8DBBB00563438 /* LFTextFieldView.swift in Sources */,
 				6BD2D58025D02E7D00A36AB1 /* LFCheckboxButton.swift in Sources */,
+				6B28FAB52673A60C0035E191 /* VibrateMotion.swift in Sources */,
 				6BD2D58225D02E7D00A36AB1 /* LFTextFieldWithTextButton.swift in Sources */,
 				6BD2D57F25D02E7D00A36AB1 /* LFSearchBar.swift in Sources */,
 			);
