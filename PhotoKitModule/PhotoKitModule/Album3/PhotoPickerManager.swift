@@ -21,6 +21,7 @@ public protocol PhotoPickerable {
   func grantCameraPermission() -> Observable<Bool>
   func showCamera() -> Single<UIImagePickerController>
   func showPhotoLibrary() -> Single<UIImagePickerController>
+  func fetchOptions() -> PHFetchOptions
   func fetchAllAssets() -> PHFetchResult<PHAsset>
   func fetchUserLibraryAlbums() -> PHFetchResult<PHAssetCollection>
   func fetchFavoriteAlbums() -> PHFetchResult<PHAssetCollection>
@@ -110,6 +111,15 @@ public class PhotoPickerManager: NSObject, PhotoPickerable {
     }
   }
 
+  public func fetchOptions() -> PHFetchOptions {
+    let options = PHFetchOptions()
+    options.sortDescriptors = [
+      NSSortDescriptor(key: "creationDate", ascending: false)
+    ]
+
+    return options
+  }
+
   /// 최근 항목 Asset
   public func fetchAllAssets() -> PHFetchResult<PHAsset> {
     let userLibraryCollection = PHAssetCollection.fetchAssetCollections(
@@ -129,13 +139,13 @@ public class PhotoPickerManager: NSObject, PhotoPickerable {
 
   /// 최근 항목 Album
   public func fetchUserLibraryAlbums() -> PHFetchResult<PHAssetCollection> {
-    let favoriteAlbums = PHAssetCollection.fetchAssetCollections(
+    let recentAlbums = PHAssetCollection.fetchAssetCollections(
       with: .smartAlbum,
       subtype: .smartAlbumUserLibrary,
       options: nil
     )
 
-    return favoriteAlbums
+    return recentAlbums
   }
 
   /// 즐겨찾는 항목 Album
@@ -163,17 +173,6 @@ public class PhotoPickerManager: NSObject, PhotoPickerable {
   // MARK: Static
 
   public static func fetchOptions() -> PHFetchOptions {
-    let options = PHFetchOptions()
-    options.sortDescriptors = [
-      NSSortDescriptor(key: "creationDate", ascending: false)
-    ]
-
-    return options
-  }
-
-  // MARK: Private
-
-  private func fetchOptions() -> PHFetchOptions {
     let options = PHFetchOptions()
     options.sortDescriptors = [
       NSSortDescriptor(key: "creationDate", ascending: false)
