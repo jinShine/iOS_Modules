@@ -14,7 +14,7 @@ public typealias Default = String
 
 public class NetworkService<Router: TargetType> {
 
-  private let dispatchQueue = DispatchQueue(label: "queue.consumer.parser")
+  private let dispatchQueue = DispatchQueue(label: "queue.network.parser")
 
   public var provider: MoyaProvider<Router>
 
@@ -36,15 +36,37 @@ extension NetworkService: Networkable {
   public func request<T: Decodable>(
     to router: Router,
     decode: T.Type
-  ) -> Single<CommonResponse<T>> {
-    // let online = networkEnable()
-    return provider.rx.request(router, callbackQueue: dispatchQueue)
-      .filterSuccessfulStatusCodes()
-      .do(
-        onSuccess: { response in },
-        onError: { NetworkError.catchError($0) }
-      )
-      .catchErrorLific()
-      .map(CommonResponse<T>.self)
+  ) -> Observable<CommonResponse<T>> {
+    let online = networkEnable()
+    let request = provider.rx.request(router, callbackQueue: dispatchQueue)
+
+    return online
+      .ignore(value: false)
+      .take(1)
+      .flatMap { _ in
+        request
+          .filterSuccessfulStatusCodes()
+          .do(
+            onSuccess: { response in },
+            onError: { NetworkError.catchError($0) }
+          )
+          .catchErrorLific()
+          .map(CommonResponse<T>.self)
+      }
+  }
+
+  public func request<T: Decodable>(
+    to router: Router,
+    decode: T.Type
+  ) -> Observable<T> {
+    let online = networkEnable()
+    let request = provider.rx.request(router, callbackQueue: dispatchQueue)
+
+    return online
+      .ignore(value: false)
+      .take(1)
+      .flatMap { _ in
+        request.map(T.self)
+      }
   }
 }

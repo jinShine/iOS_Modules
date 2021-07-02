@@ -14,5 +14,10 @@ public protocol Networkable {
   func request<T: Decodable>(
     to router: Router,
     decode: T.Type
-  ) -> Single<CommonResponse<T>>
+  ) -> Observable<CommonResponse<T>>
+
+  func request<T: Decodable>(
+    to router: Router,
+    decode: T.Type
+  ) -> Observable<T>
 }
