@@ -22,15 +22,10 @@ final class <#ViewModel#>: <#ViewModel#>Bindable {
 
   // MARK: Output
 
-  // MARK: - Properties
-
   // MARK: - Initialize
 
   init() {
 
+    // MARK: - Helper methods
   }
 }
-
-// MARK: - Helper methods
-
-extension <#ViewModel#> { }
