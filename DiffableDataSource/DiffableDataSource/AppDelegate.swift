@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  NSDiffableDataSourceSnapshot
+//  DiffableDataSource
 //
-//  Created by buzz on 2021/05/08.
+//  Created by buzz on 2021/07/23.
 //
 
 import UIKit

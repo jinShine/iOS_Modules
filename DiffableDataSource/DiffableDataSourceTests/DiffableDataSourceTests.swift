@@ -1,14 +1,14 @@
 //
-//  NSDiffableDataSourceSnapshotTests.swift
-//  NSDiffableDataSourceSnapshotTests
+//  DiffableDataSourceTests.swift
+//  DiffableDataSourceTests
 //
-//  Created by buzz on 2021/05/08.
+//  Created by buzz on 2021/07/23.
 //
 
 import XCTest
-@testable import NSDiffableDataSourceSnapshot
+@testable import DiffableDataSource
 
-class NSDiffableDataSourceSnapshotTests: XCTestCase {
+class DiffableDataSourceTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
