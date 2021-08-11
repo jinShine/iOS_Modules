@@ -1,0 +1,602 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6BBE954426C3E74800173ABF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BBE954326C3E74800173ABF /* AppDelegate.swift */; };
+		6BBE954626C3E74800173ABF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BBE954526C3E74800173ABF /* SceneDelegate.swift */; };
+		6BBE954826C3E74800173ABF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BBE954726C3E74800173ABF /* ViewController.swift */; };
+		6BBE954B26C3E74800173ABF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BBE954926C3E74800173ABF /* Main.storyboard */; };
+		6BBE954D26C3E74B00173ABF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BBE954C26C3E74B00173ABF /* Assets.xcassets */; };
+		6BBE955026C3E74B00173ABF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BBE954E26C3E74B00173ABF /* LaunchScreen.storyboard */; };
+		6BBE955B26C3E74B00173ABF /* PopTipMessageViewModuleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BBE955A26C3E74B00173ABF /* PopTipMessageViewModuleTests.swift */; };
+		6BBE956626C3E74B00173ABF /* PopTipMessageViewModuleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BBE956526C3E74B00173ABF /* PopTipMessageViewModuleUITests.swift */; };
+		6BBE957426C3E76000173ABF /* PopTipMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BBE957326C3E76000173ABF /* PopTipMessageView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6BBE955726C3E74B00173ABF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6BBE953826C3E74700173ABF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6BBE953F26C3E74800173ABF;
+			remoteInfo = PopTipMessageViewModule;
+		};
+		6BBE956226C3E74B00173ABF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6BBE953826C3E74700173ABF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6BBE953F26C3E74800173ABF;
+			remoteInfo = PopTipMessageViewModule;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		6BBE954026C3E74800173ABF /* PopTipMessageViewModule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PopTipMessageViewModule.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6BBE954326C3E74800173ABF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6BBE954526C3E74800173ABF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		6BBE954726C3E74800173ABF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6BBE954A26C3E74800173ABF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6BBE954C26C3E74B00173ABF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6BBE954F26C3E74B00173ABF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6BBE955126C3E74B00173ABF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6BBE955626C3E74B00173ABF /* PopTipMessageViewModuleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PopTipMessageViewModuleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6BBE955A26C3E74B00173ABF /* PopTipMessageViewModuleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopTipMessageViewModuleTests.swift; sourceTree = "<group>"; };
+		6BBE955C26C3E74B00173ABF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6BBE956126C3E74B00173ABF /* PopTipMessageViewModuleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PopTipMessageViewModuleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6BBE956526C3E74B00173ABF /* PopTipMessageViewModuleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopTipMessageViewModuleUITests.swift; sourceTree = "<group>"; };
+		6BBE956726C3E74B00173ABF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6BBE957326C3E76000173ABF /* PopTipMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopTipMessageView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6BBE953D26C3E74800173ABF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6BBE955326C3E74B00173ABF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6BBE955E26C3E74B00173ABF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6BBE953726C3E74700173ABF = {
+			isa = PBXGroup;
+			children = (
+				6BBE954226C3E74800173ABF /* PopTipMessageViewModule */,
+				6BBE955926C3E74B00173ABF /* PopTipMessageViewModuleTests */,
+				6BBE956426C3E74B00173ABF /* PopTipMessageViewModuleUITests */,
+				6BBE954126C3E74800173ABF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6BBE954126C3E74800173ABF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6BBE954026C3E74800173ABF /* PopTipMessageViewModule.app */,
+				6BBE955626C3E74B00173ABF /* PopTipMessageViewModuleTests.xctest */,
+				6BBE956126C3E74B00173ABF /* PopTipMessageViewModuleUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6BBE954226C3E74800173ABF /* PopTipMessageViewModule */ = {
+			isa = PBXGroup;
+			children = (
+				6BBE954326C3E74800173ABF /* AppDelegate.swift */,
+				6BBE954526C3E74800173ABF /* SceneDelegate.swift */,
+				6BBE954726C3E74800173ABF /* ViewController.swift */,
+				6BBE954926C3E74800173ABF /* Main.storyboard */,
+				6BBE954C26C3E74B00173ABF /* Assets.xcassets */,
+				6BBE954E26C3E74B00173ABF /* LaunchScreen.storyboard */,
+				6BBE955126C3E74B00173ABF /* Info.plist */,
+				6BBE957326C3E76000173ABF /* PopTipMessageView.swift */,
+			);
+			path = PopTipMessageViewModule;
+			sourceTree = "<group>";
+		};
+		6BBE955926C3E74B00173ABF /* PopTipMessageViewModuleTests */ = {
+			isa = PBXGroup;
+			children = (
+				6BBE955A26C3E74B00173ABF /* PopTipMessageViewModuleTests.swift */,
+				6BBE955C26C3E74B00173ABF /* Info.plist */,
+			);
+			path = PopTipMessageViewModuleTests;
+			sourceTree = "<group>";
+		};
+		6BBE956426C3E74B00173ABF /* PopTipMessageViewModuleUITests */ = {
+			isa = PBXGroup;
+			children = (
+				6BBE956526C3E74B00173ABF /* PopTipMessageViewModuleUITests.swift */,
+				6BBE956726C3E74B00173ABF /* Info.plist */,
+			);
+			path = PopTipMessageViewModuleUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6BBE953F26C3E74800173ABF /* PopTipMessageViewModule */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6BBE956A26C3E74B00173ABF /* Build configuration list for PBXNativeTarget "PopTipMessageViewModule" */;
+			buildPhases = (
+				6BBE953C26C3E74800173ABF /* Sources */,
+				6BBE953D26C3E74800173ABF /* Frameworks */,
+				6BBE953E26C3E74800173ABF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PopTipMessageViewModule;
+			productName = PopTipMessageViewModule;
+			productReference = 6BBE954026C3E74800173ABF /* PopTipMessageViewModule.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6BBE955526C3E74B00173ABF /* PopTipMessageViewModuleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6BBE956D26C3E74B00173ABF /* Build configuration list for PBXNativeTarget "PopTipMessageViewModuleTests" */;
+			buildPhases = (
+				6BBE955226C3E74B00173ABF /* Sources */,
+				6BBE955326C3E74B00173ABF /* Frameworks */,
+				6BBE955426C3E74B00173ABF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6BBE955826C3E74B00173ABF /* PBXTargetDependency */,
+			);
+			name = PopTipMessageViewModuleTests;
+			productName = PopTipMessageViewModuleTests;
+			productReference = 6BBE955626C3E74B00173ABF /* PopTipMessageViewModuleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		6BBE956026C3E74B00173ABF /* PopTipMessageViewModuleUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6BBE957026C3E74B00173ABF /* Build configuration list for PBXNativeTarget "PopTipMessageViewModuleUITests" */;
+			buildPhases = (
+				6BBE955D26C3E74B00173ABF /* Sources */,
+				6BBE955E26C3E74B00173ABF /* Frameworks */,
+				6BBE955F26C3E74B00173ABF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6BBE956326C3E74B00173ABF /* PBXTargetDependency */,
+			);
+			name = PopTipMessageViewModuleUITests;
+			productName = PopTipMessageViewModuleUITests;
+			productReference = 6BBE956126C3E74B00173ABF /* PopTipMessageViewModuleUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6BBE953826C3E74700173ABF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					6BBE953F26C3E74800173ABF = {
+						CreatedOnToolsVersion = 12.5;
+					};
+					6BBE955526C3E74B00173ABF = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = 6BBE953F26C3E74800173ABF;
+					};
+					6BBE956026C3E74B00173ABF = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = 6BBE953F26C3E74800173ABF;
+					};
+				};
+			};
+			buildConfigurationList = 6BBE953B26C3E74700173ABF /* Build configuration list for PBXProject "PopTipMessageViewModule" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6BBE953726C3E74700173ABF;
+			productRefGroup = 6BBE954126C3E74800173ABF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6BBE953F26C3E74800173ABF /* PopTipMessageViewModule */,
+				6BBE955526C3E74B00173ABF /* PopTipMessageViewModuleTests */,
+				6BBE956026C3E74B00173ABF /* PopTipMessageViewModuleUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6BBE953E26C3E74800173ABF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6BBE955026C3E74B00173ABF /* LaunchScreen.storyboard in Resources */,
+				6BBE954D26C3E74B00173ABF /* Assets.xcassets in Resources */,
+				6BBE954B26C3E74800173ABF /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6BBE955426C3E74B00173ABF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6BBE955F26C3E74B00173ABF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6BBE953C26C3E74800173ABF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6BBE954826C3E74800173ABF /* ViewController.swift in Sources */,
+				6BBE954426C3E74800173ABF /* AppDelegate.swift in Sources */,
+				6BBE957426C3E76000173ABF /* PopTipMessageView.swift in Sources */,
+				6BBE954626C3E74800173ABF /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6BBE955226C3E74B00173ABF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6BBE955B26C3E74B00173ABF /* PopTipMessageViewModuleTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6BBE955D26C3E74B00173ABF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6BBE956626C3E74B00173ABF /* PopTipMessageViewModuleUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6BBE955826C3E74B00173ABF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6BBE953F26C3E74800173ABF /* PopTipMessageViewModule */;
+			targetProxy = 6BBE955726C3E74B00173ABF /* PBXContainerItemProxy */;
+		};
+		6BBE956326C3E74B00173ABF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6BBE953F26C3E74800173ABF /* PopTipMessageViewModule */;
+			targetProxy = 6BBE956226C3E74B00173ABF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		6BBE954926C3E74800173ABF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6BBE954A26C3E74800173ABF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		6BBE954E26C3E74B00173ABF /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6BBE954F26C3E74B00173ABF /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6BBE956826C3E74B00173ABF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		6BBE956926C3E74B00173ABF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6BBE956B26C3E74B00173ABF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CNMQE42DQF;
+				INFOPLIST_FILE = PopTipMessageViewModule/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jinshine.PopTipMessageViewModule;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6BBE956C26C3E74B00173ABF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CNMQE42DQF;
+				INFOPLIST_FILE = PopTipMessageViewModule/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jinshine.PopTipMessageViewModule;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		6BBE956E26C3E74B00173ABF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CNMQE42DQF;
+				INFOPLIST_FILE = PopTipMessageViewModuleTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jinshine.PopTipMessageViewModuleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PopTipMessageViewModule.app/PopTipMessageViewModule";
+			};
+			name = Debug;
+		};
+		6BBE956F26C3E74B00173ABF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CNMQE42DQF;
+				INFOPLIST_FILE = PopTipMessageViewModuleTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jinshine.PopTipMessageViewModuleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PopTipMessageViewModule.app/PopTipMessageViewModule";
+			};
+			name = Release;
+		};
+		6BBE957126C3E74B00173ABF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CNMQE42DQF;
+				INFOPLIST_FILE = PopTipMessageViewModuleUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jinshine.PopTipMessageViewModuleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PopTipMessageViewModule;
+			};
+			name = Debug;
+		};
+		6BBE957226C3E74B00173ABF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CNMQE42DQF;
+				INFOPLIST_FILE = PopTipMessageViewModuleUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jinshine.PopTipMessageViewModuleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PopTipMessageViewModule;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6BBE953B26C3E74700173ABF /* Build configuration list for PBXProject "PopTipMessageViewModule" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6BBE956826C3E74B00173ABF /* Debug */,
+				6BBE956926C3E74B00173ABF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6BBE956A26C3E74B00173ABF /* Build configuration list for PBXNativeTarget "PopTipMessageViewModule" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6BBE956B26C3E74B00173ABF /* Debug */,
+				6BBE956C26C3E74B00173ABF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6BBE956D26C3E74B00173ABF /* Build configuration list for PBXNativeTarget "PopTipMessageViewModuleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6BBE956E26C3E74B00173ABF /* Debug */,
+				6BBE956F26C3E74B00173ABF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6BBE957026C3E74B00173ABF /* Build configuration list for PBXNativeTarget "PopTipMessageViewModuleUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6BBE957126C3E74B00173ABF /* Debug */,
+				6BBE957226C3E74B00173ABF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6BBE953826C3E74700173ABF /* Project object */;
+}
