@@ -14,17 +14,15 @@ import RxSwift
 class AppleAppService: NSObject, AppService {
 
   let appleIDProvider = ASAuthorizationAppleIDProvider()
-  var authorizationController: ASAuthorizationController?
+  var authorizationController: ASAuthorizationController
 
-  /// 유저 정보
-  let userInfo = PublishSubject<String>()
-
-  func configure() {
+  override init() {
     let request = appleIDProvider.createRequest()
     request.requestedScopes = [.email, .fullName]
-
     authorizationController = ASAuthorizationController(authorizationRequests: [request])
-    authorizationController?.delegate = self
-    authorizationController?.presentationContextProvider = self
+
+    super.init()
   }
+
+  func configure() {}
 }

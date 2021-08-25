@@ -9,30 +9,35 @@
 import AuthenticationServices
 import Common
 import Foundation
+import JWTDecode
+import RxCocoa
 import RxSwift
 
 extension AppleAppService {
 
   /// 로그인
-  func login() -> Completable {
-    return Completable.create { [weak self] completable -> Disposable in
-      self?.authorizationController?.performRequests()
-      completable(.completed)
+  func login() -> Observable<Void> {
+    return Observable.create { [weak self] observer -> Disposable in
+      guard let self = self else { return Disposables.create() }
+
+      self.authorizationController.presentationContextProvider = self
+      self.authorizationController.performRequests()
+
+      observer.onCompleted()
 
       return Disposables.create()
     }
   }
 
   /// 로그아웃
-  func logout() -> Completable {
-    return Completable.create { [weak self] completable -> Disposable in
-      self?.appleIDProvider.getCredentialState(forUserID: "test") { state, error in
+  func logout() -> Observable<Void> {
+    return Observable.create { [weak self] observer -> Disposable in
+      self?.appleIDProvider.getCredentialState(forUserID: AuthManager.shared.accessToken ?? "") { state, error in
         switch state {
         case .authorized:
           return
         case .revoked, .notFound:
-          // logout 로직
-          completable(.completed)
+          observer.onCompleted()
         default:
           return
         }
@@ -41,23 +46,15 @@ extension AppleAppService {
       return Disposables.create()
     }
   }
-}
 
-extension AppleAppService: ASAuthorizationControllerDelegate {
-
-  func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
-    if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
-      guard let token = appleIDCredential.identityToken else { return }
-      let idToken = String(decoding: token, as: UTF8.self)
-      userInfo.onNext(appleIDCredential.email ?? "")
-      log.debug(idToken)
-      log.debug(appleIDCredential.email ?? "")
-      log.debug(appleIDCredential.fullName ?? "")
-    }
+  /// 유저 정보
+  func userInfo() -> Observable<(token: LificToken, email: String)> {
+    return authorizationController.rx.userInfo
   }
 
-  func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
-    log.error(error.localizedDescription)
+  /// 에러
+  func error() -> Observable<Error> {
+    return authorizationController.rx.error
   }
 }
 
@@ -65,5 +62,91 @@ extension AppleAppService: ASAuthorizationControllerPresentationContextProviding
 
   func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
     return Application.shared.window ?? UIWindow()
+  }
+}
+
+// MARK: - Delegate proxy
+
+class RxAppleAuthorizationDelegateProxy: DelegateProxy<ASAuthorizationController, ASAuthorizationControllerDelegate>, ASAuthorizationControllerDelegate, DelegateProxyType {
+
+  /// 유저 정보
+  let userInfo = PublishSubject<(token: LificToken, email: String)>()
+
+  /// 에러
+  let error = PublishSubject<Error>()
+
+  // MARK: DelegateProxy type
+
+  static func registerKnownImplementations() {
+    register {
+      RxAppleAuthorizationDelegateProxy(parentObject: $0, delegateProxy: self)
+    }
+  }
+
+  static func currentDelegate(for object: ASAuthorizationController) -> ASAuthorizationControllerDelegate? {
+    return object.delegate
+  }
+
+  static func setCurrentDelegate(_ delegate: ASAuthorizationControllerDelegate?, to object: ASAuthorizationController) {
+    object.delegate = delegate
+  }
+
+  // MARK: ASAuthorizationController delegate
+
+  func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+    if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
+      guard let idToken = appleIDCredential.identityToken else { return }
+
+      let decodedToken = String(decoding: idToken, as: UTF8.self)
+      let token = LificToken(accessToken: decodedToken)
+      let email = appleIDCredential.email ?? ""
+
+      log.debug(decodedToken)
+
+      if email.isEmpty {
+        let email = emailInfo(from: decodedToken)
+        userInfo.onNext((token, email))
+        log.debug(email)
+      } else {
+        userInfo.onNext((token, email))
+        log.debug(email)
+      }
+    }
+  }
+
+  func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+    self.error.onNext(error)
+  }
+
+  private func emailInfo(from token: String) -> String {
+    guard let jwt = try? decode(jwt: token) else {
+      return ""
+    }
+
+    return jwt.claim(name: "email").string ?? ""
+  }
+
+  deinit {
+    userInfo.onCompleted()
+    error.onCompleted()
+  }
+}
+
+// MARK: - ASAuthorizationController + Rx
+
+extension Reactive where Base: ASAuthorizationController {
+
+  var delegate: DelegateProxy<ASAuthorizationController, ASAuthorizationControllerDelegate> {
+    return RxAppleAuthorizationDelegateProxy.proxy(for: base)
+  }
+
+  var userInfo: Observable<(token: LificToken, email: String)> {
+    return RxAppleAuthorizationDelegateProxy.proxy(for: base)
+      .userInfo
+  }
+
+  var error: Observable<Error> {
+    return RxAppleAuthorizationDelegateProxy.proxy(for: base)
+      .error
   }
 }
