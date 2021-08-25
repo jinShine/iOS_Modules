@@ -13,7 +13,8 @@
 		6B99AEE7260DEAFF00885A1F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B99AEE5260DEAFF00885A1F /* Main.storyboard */; };
 		6B99AEE9260DEB0100885A1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B99AEE8260DEB0100885A1F /* Assets.xcassets */; };
 		6B99AEEC260DEB0100885A1F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B99AEEA260DEB0100885A1F /* LaunchScreen.storyboard */; };
-		6B99AEF5260DEB0B00885A1F /* NaverManasger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B99AEF4260DEB0B00885A1F /* NaverManasger.swift */; };
+		6BF4BA2326D6878500B73832 /* NaverAppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF4BA2226D6878500B73832 /* NaverAppService.swift */; };
+		6BF4BA2526D6879400B73832 /* NaverAppService+Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF4BA2426D6879400B73832 /* NaverAppService+Login.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +26,8 @@
 		6B99AEE8260DEB0100885A1F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6B99AEEB260DEB0100885A1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6B99AEED260DEB0100885A1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6B99AEF4260DEB0B00885A1F /* NaverManasger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverManasger.swift; sourceTree = "<group>"; };
+		6BF4BA2226D6878500B73832 /* NaverAppService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverAppService.swift; sourceTree = "<group>"; };
+		6BF4BA2426D6879400B73832 /* NaverAppService+Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NaverAppService+Login.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +67,8 @@
 				6B99AEE8260DEB0100885A1F /* Assets.xcassets */,
 				6B99AEEA260DEB0100885A1F /* LaunchScreen.storyboard */,
 				6B99AEED260DEB0100885A1F /* Info.plist */,
-				6B99AEF4260DEB0B00885A1F /* NaverManasger.swift */,
+				6BF4BA2226D6878500B73832 /* NaverAppService.swift */,
+				6BF4BA2426D6879400B73832 /* NaverAppService+Login.swift */,
 			);
 			path = NaverModule;
 			sourceTree = "<group>";
@@ -140,7 +143,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6B99AEF5260DEB0B00885A1F /* NaverManasger.swift in Sources */,
+				6BF4BA2526D6879400B73832 /* NaverAppService+Login.swift in Sources */,
+				6BF4BA2326D6878500B73832 /* NaverAppService.swift in Sources */,
 				6B99AEE4260DEAFF00885A1F /* ViewController.swift in Sources */,
 				6B99AEE0260DEAFF00885A1F /* AppDelegate.swift in Sources */,
 				6B99AEE2260DEAFF00885A1F /* SceneDelegate.swift in Sources */,
