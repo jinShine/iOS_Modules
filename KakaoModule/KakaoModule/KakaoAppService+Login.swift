@@ -1,8 +1,8 @@
 //
-//  kakaoManager.swift
+//  KakaoAppService+Login.swift
 //  KakaoModule
 //
-//  Created by buzz on 2021/03/24.
+//  Created by buzz on 2021/08/25.
 //
 
 import Common
