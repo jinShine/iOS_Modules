@@ -57,6 +57,29 @@ extension ConsumerRouter: TargetType {
     switch self {
     case .test:
       return .requestPlain
+
+      /*
+     case .expertUsePush(let isUse):
+       return .requestParameters(
+          parameters: ["useYn": isUse.yn],
+          encoding: JSONEncoding.default
+     case .registrationProductForImmediately(let immediatelyProduct):
+        return .requestJSONEncodable(immediatelyProduct)
+
+     case .exchangeRate(let currencyCode, let price):
+       return .requestParameters(parameters: [
+         "currencyCode": currencyCode,
+         "price": price
+       ], encoding: URLEncoding.default)
+
+     case .profileImageUpload(let data):
+       let multipartFormData = MultipartFormData(
+         provider: .data(data), name: "imageUploadFile", fileName: "profileImage.png"
+       )
+       return .uploadMultipart([multipartFormData])
+     )
+     */
+
     }
   }
 
