@@ -12,3 +12,10 @@ public struct CommonResponse<T: Codable>: Codable {
   public var message: String
   public var data: T?
 }
+
+extension CommonResponse {
+
+  public var isSuccess: Bool {
+    return code == "0"
+  }
+}
