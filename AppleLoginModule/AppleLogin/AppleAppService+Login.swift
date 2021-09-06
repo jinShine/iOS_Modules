@@ -95,22 +95,22 @@ class RxAppleAuthorizationDelegateProxy: DelegateProxy<ASAuthorizationController
 
   func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
     if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
-      guard let idToken = appleIDCredential.identityToken else { return }
+      guard let identityToken = appleIDCredential.identityToken else { return }
 
-      let decodedToken = String(decoding: idToken, as: UTF8.self)
-      let token = LificToken(accessToken: decodedToken)
-      let email = appleIDCredential.email ?? ""
+      let jwtToken = String(decoding: identityToken, as: UTF8.self)
+      let userIdentifier = appleIDCredential.user
+      let token = LificToken(accessToken: userIdentifier)
 
-      log.debug(decodedToken)
+      let decodeEmail = decodeEmail(from: jwtToken)
 
-      if email.isEmpty {
-        let email = emailInfo(from: decodedToken)
-        userInfo.onNext((token, email))
-        log.debug(email)
+      if decodeEmail.contains("privaterelay.appleid.com") {
+        userInfo.onNext((token, ""))
       } else {
-        userInfo.onNext((token, email))
-        log.debug(email)
+        userInfo.onNext((token, decodeEmail))
       }
+
+      log.debug(decodeEmail)
+      log.debug(token)
     }
   }
 
@@ -118,7 +118,7 @@ class RxAppleAuthorizationDelegateProxy: DelegateProxy<ASAuthorizationController
     self.error.onNext(error)
   }
 
-  private func emailInfo(from token: String) -> String {
+  private func decodeEmail(from token: String) -> String {
     guard let jwt = try? decode(jwt: token) else {
       return ""
     }
