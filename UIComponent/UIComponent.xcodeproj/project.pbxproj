@@ -19,6 +19,7 @@
 		6B70974325C5521900CE6788 /* UIComponentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B70974225C5521900CE6788 /* UIComponentTests.swift */; };
 		6B70974E25C5521900CE6788 /* UIComponentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B70974D25C5521900CE6788 /* UIComponentUITests.swift */; };
 		6B70977E25C659BD00CE6788 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B70977D25C659BD00CE6788 /* PaddingLabel.swift */; };
+		6BAF34C626E796F400FD60E5 /* LFTextFieldView+InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BAF34C526E796F400FD60E5 /* LFTextFieldView+InputView.swift */; };
 		6BD2D57725CDBA8800A36AB1 /* LFTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD2D57625CDBA8800A36AB1 /* LFTextField.swift */; };
 		6BD2D57F25D02E7D00A36AB1 /* LFSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD2D57D25D02E7D00A36AB1 /* LFSearchBar.swift */; };
 		6BD2D58025D02E7D00A36AB1 /* LFCheckboxButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD2D57C25D02E7D00A36AB1 /* LFCheckboxButton.swift */; };
@@ -72,6 +73,7 @@
 		6B70976425C5523900CE6788 /* Slider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slider.swift; sourceTree = "<group>"; };
 		6B70976625C5523900CE6788 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		6B70977D25C659BD00CE6788 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
+		6BAF34C526E796F400FD60E5 /* LFTextFieldView+InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LFTextFieldView+InputView.swift"; sourceTree = "<group>"; };
 		6BD2D57625CDBA8800A36AB1 /* LFTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LFTextField.swift; sourceTree = "<group>"; };
 		6BD2D57B25D02E7D00A36AB1 /* LFRadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LFRadioButton.swift; sourceTree = "<group>"; };
 		6BD2D57C25D02E7D00A36AB1 /* LFCheckboxButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LFCheckboxButton.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 				6B70977D25C659BD00CE6788 /* PaddingLabel.swift */,
 				6BD2D57625CDBA8800A36AB1 /* LFTextField.swift */,
 				6B1924AB25F8DBBB00563438 /* LFTextFieldView.swift */,
+				6BAF34C526E796F400FD60E5 /* LFTextFieldView+InputView.swift */,
 				6BE40A76262EFC22006203D1 /* LFAlertController.swift */,
 				6BE40A7B262EFC34006203D1 /* LFWatingAlertController.swift */,
 				6B39CC522636F8EC009CE71C /* Toast.swift */,
@@ -328,6 +331,7 @@
 				6B70977E25C659BD00CE6788 /* PaddingLabel.swift in Sources */,
 				6B70973025C5521700CE6788 /* ViewController.swift in Sources */,
 				6BE40A77262EFC22006203D1 /* LFAlertController.swift in Sources */,
+				6BAF34C626E796F400FD60E5 /* LFTextFieldView+InputView.swift in Sources */,
 				6BD2D57725CDBA8800A36AB1 /* LFTextField.swift in Sources */,
 				6BD2D58125D02E7D00A36AB1 /* LFRadioButton.swift in Sources */,
 				6B70972C25C5521600CE6788 /* AppDelegate.swift in Sources */,
