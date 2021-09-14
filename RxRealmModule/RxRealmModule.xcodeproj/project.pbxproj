@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6BE8646226F0EEC90083B19E /* RealmStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE8646126F0EEC90083B19E /* RealmStorage.swift */; };
+		6BE8646426F0EEDB0083B19E /* RealmStorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE8646326F0EEDB0083B19E /* RealmStorable.swift */; };
+		6BE8646626F0EEEA0083B19E /* RealmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE8646526F0EEEA0083B19E /* RealmHelper.swift */; };
+		6BE8646826F0EF060083B19E /* RealmStorageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE8646726F0EF060083B19E /* RealmStorageProvider.swift */; };
+		6BE8646B26F0EF200083B19E /* RMUserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE8646A26F0EF200083B19E /* RMUserEntity.swift */; };
 		EC83921124C5C086001C2791 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC83921024C5C086001C2791 /* AppDelegate.swift */; };
 		EC83921324C5C086001C2791 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC83921224C5C086001C2791 /* SceneDelegate.swift */; };
 		EC83921524C5C086001C2791 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC83921424C5C086001C2791 /* ViewController.swift */; };
@@ -18,6 +23,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6BE8646126F0EEC90083B19E /* RealmStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmStorage.swift; sourceTree = "<group>"; };
+		6BE8646326F0EEDB0083B19E /* RealmStorable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmStorable.swift; sourceTree = "<group>"; };
+		6BE8646526F0EEEA0083B19E /* RealmHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmHelper.swift; sourceTree = "<group>"; };
+		6BE8646726F0EF060083B19E /* RealmStorageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmStorageProvider.swift; sourceTree = "<group>"; };
+		6BE8646A26F0EF200083B19E /* RMUserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMUserEntity.swift; sourceTree = "<group>"; };
 		EC83920D24C5C086001C2791 /* RxRealmModule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxRealmModule.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC83921024C5C086001C2791 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC83921224C5C086001C2791 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +51,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6BE8645F26F0EEA90083B19E /* Storage_v1 */ = {
+			isa = PBXGroup;
+			children = (
+				EC83922424C5C0A5001C2791 /* RealmService.swift */,
+			);
+			path = Storage_v1;
+			sourceTree = "<group>";
+		};
+		6BE8646026F0EEB30083B19E /* Storage_v2 */ = {
+			isa = PBXGroup;
+			children = (
+				6BE8646926F0EF120083B19E /* Entity */,
+				6BE8646126F0EEC90083B19E /* RealmStorage.swift */,
+				6BE8646326F0EEDB0083B19E /* RealmStorable.swift */,
+				6BE8646526F0EEEA0083B19E /* RealmHelper.swift */,
+				6BE8646726F0EF060083B19E /* RealmStorageProvider.swift */,
+			);
+			path = Storage_v2;
+			sourceTree = "<group>";
+		};
+		6BE8646926F0EF120083B19E /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				6BE8646A26F0EF200083B19E /* RMUserEntity.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
 		EC83920424C5C085001C2791 = {
 			isa = PBXGroup;
 			children = (
@@ -60,8 +98,9 @@
 		EC83920F24C5C086001C2791 /* RxRealmModule */ = {
 			isa = PBXGroup;
 			children = (
+				6BE8646026F0EEB30083B19E /* Storage_v2 */,
+				6BE8645F26F0EEA90083B19E /* Storage_v1 */,
 				EC83922724C5C0AD001C2791 /* Model */,
-				EC83922624C5C0A9001C2791 /* Service */,
 				EC83921024C5C086001C2791 /* AppDelegate.swift */,
 				EC83921224C5C086001C2791 /* SceneDelegate.swift */,
 				EC83921424C5C086001C2791 /* ViewController.swift */,
@@ -71,14 +110,6 @@
 				EC83921E24C5C088001C2791 /* Info.plist */,
 			);
 			path = RxRealmModule;
-			sourceTree = "<group>";
-		};
-		EC83922624C5C0A9001C2791 /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				EC83922424C5C0A5001C2791 /* RealmService.swift */,
-			);
-			path = Service;
 			sourceTree = "<group>";
 		};
 		EC83922724C5C0AD001C2791 /* Model */ = {
@@ -165,6 +196,11 @@
 				EC83922924C5C0E1001C2791 /* AppInitialization.swift in Sources */,
 				EC83921324C5C086001C2791 /* SceneDelegate.swift in Sources */,
 				EC83922524C5C0A5001C2791 /* RealmService.swift in Sources */,
+				6BE8646826F0EF060083B19E /* RealmStorageProvider.swift in Sources */,
+				6BE8646B26F0EF200083B19E /* RMUserEntity.swift in Sources */,
+				6BE8646626F0EEEA0083B19E /* RealmHelper.swift in Sources */,
+				6BE8646226F0EEC90083B19E /* RealmStorage.swift in Sources */,
+				6BE8646426F0EEDB0083B19E /* RealmStorable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
