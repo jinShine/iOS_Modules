@@ -48,9 +48,10 @@ class ViewController: UIViewController {
   /// headerView의 top constraints를 이용
   private func stickyHeader2(_ scrollView: UIScrollView) {
     if scrollView.contentOffset.y < 0 {
-      headerViewTopConstraint.constant = -(scrollView.contentOffset.y + Metric.headerViewMaxHeight)
+      headerViewTopConstraint.constant = -(scrollView.contentOffset.y + Metric.headerViewMaxHeight) + 44
     } else {
-      headerViewTopConstraint.constant = -Metric.headerViewMaxHeight
+//      headerViewTopConstraint.constant = -Metric.headerViewMaxHeight
+      headerViewTopConstraint.constant = -150
     }
   }
 }
@@ -70,7 +71,7 @@ extension ViewController: UITableViewDataSource {
 extension ViewController: UITableViewDelegate {
 
   func scrollViewDidScroll(_ scrollView: UIScrollView) {
-    stickyHeader1(scrollView)
-//    stickyHeader2(scrollView)
+//    stickyHeader1(scrollView)
+    stickyHeader2(scrollView)
   }
 }
