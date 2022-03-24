@@ -13,7 +13,7 @@ import UIKit
 // MARK: - StompSocketManaging
 
 public protocol StompSocketManaging {
-  var receiveMessage: PublishRelay<Any?> { get }
+  var receiveMessage: PublishRelay<Data> { get }
 
   func registerObservers()
   func registerSocket(url: URL?, header: [String: String]?, topics: [String])
@@ -33,7 +33,7 @@ public class StompSocketManager: NSObject, StompSocketManaging {
   private var topics: [String] = []
   private var header: [String: String]?
 
-  public let receiveMessage = PublishRelay<Any?>()
+  public let receiveMessage = PublishRelay<Data>()
 
   override public init() {
     super.init()
@@ -60,6 +60,7 @@ public class StompSocketManager: NSObject, StompSocketManaging {
   }
 
   public func registerSocket(url: URL?, header: [String: String]?, topics: [String]) {
+    guard swiftStomp == nil else { return }
     guard let url = url else { fatalError("need to url") }
     self.url = url
     self.topics = topics
@@ -78,6 +79,8 @@ public class StompSocketManager: NSObject, StompSocketManaging {
   }
 
   public func disconnect() {
+    guard swiftStomp != nil else { return }
+
     if swiftStomp.isConnected {
       swiftStomp.disconnect()
     }
@@ -119,7 +122,10 @@ extension StompSocketManager: SwiftStompDelegate {
   public func onMessageReceived(swiftStomp: SwiftStomp, message: Any?, messageId: String, destination: String, headers: [String: String]) {
     log.info("🔌  Message with id `\(messageId)` received at destination `\(destination)`:\n\(message ?? "empty")")
 
-    receiveMessage.accept(message)
+    if let message = message as? String,
+       let data = message.components(separatedBy: "\n").last?.data(using: .utf8) {
+      receiveMessage.accept(data)
+    }
   }
 
   public func onReceipt(swiftStomp: SwiftStomp, receiptId: String) {
